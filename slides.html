@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ladies Learning Code</title>
+  <link rel="stylesheet" href="framework/css/slideshow.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/fonts.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/highlightjs/github.css" data-noprefix>
+  <link rel="stylesheet" href="framework/css/styles.css" data-noprefix>
+  <link rel="shortcut icon" href="framework/img/favicon.ico">
+
+  <!-- Takes care of CSS3 prefixes -->
+  <script src="framework/scripts/prefixfree.min.js"></script>
+
+  <!-- opens all links in a new window -->
+  <base target="_blank">
+</head>
+
+<!-- Timer/progress bar: Define the presentation duration using "data-duration" in minutes. -->
+<body class="en" data-duration="360">
+
+  <main>
+    <section class="slide welcome">
+      <h1><img class="logo-stacked" src="framework/img/llc-logo-stacked-white.png" alt="Ladies Learning Code logo">Welcome!</h1>
+
+      <div class="instructions no-bullet-list">
+        <!-- ADD WIFI INFO HERE -->
+        <!-- <h2>Get Connected</h2>
+        <ul class="connected">
+          <li>Network: wifi network / Password: wifi password</li>
+        </ul>
+        <hr> -->
+
+        <h2>Download<br> & Install</h2>
+        <ul class="downloads">
+          <li>Learner files (zip file): <a href="https://github.com/ladieslearningcode/llc-intro-to-ruby-data/archive/master.zip">http://bit.ly/llc-ruby-data</a>
+            <ul>
+              <li>unzip the learner file (<em>extract all</em> if you’re on a PC)</li>
+              <li>open <strong>slides.html</strong> in the browser to view the slides</li>
+            </ul>
+          </li>
+          <li>Ruby 2.2.x installed
+            <ul>
+              <li>Windows: <a href="http://rubyinstaller.org/">rubyinstaller.org</a></li>
+              <li>Mac (installed by default): <a href="https://www.ruby-lang.org/en/downloads/">ruby-lang.org</a> (for reference)</li>
+            </ul>
+          </li>
+          <li>Atom Editor: <a href="http://atom.io">http://atom.io</a></li>
+        </ul>
+      </div>
+      <footer>
+        <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
+        <p class="left">Content created by <a href="https://twitter.com/EssefBeck" target="_blank">Sarah Beck</a> and <a href="https://twitter.com/dear_trudence" target="_blank">Trudy MacNabb</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
+      </footer>
+    </section>
+
+    <section class="slide intro">
+      <img class="logo" src="framework/img/llc-logo-white.png" alt="Ladies Learning Code logo">
+      <h1 class="heading-bg">
+        <span>Fundamentals of Programming: Intro to Ruby</span>
+      </h1>
+
+      <!-- FILL IN INSTRUCTOR DETAILS -->
+      <!-- <img class="instructor" src="http://cl.ly/image/0r3Q3H110G36/profile-generic.jpg" alt="Your Name">
+      <h2><span class="cursive">with</span> Instructor name</h2>
+      <ul>
+        <li><a href="mailto:">hello@email.com</a></li>
+        <li><a href="http://website.com">website.com</a></li>
+        <li><a href="http://twitter.com/">@twitter</a></li>
+      </ul> -->
+
+      <div class="sponsor">
+        <p>In partnership with<br> <img src="framework/img/telus-logo-white.svg" alt="Telus"></p>
+      </div>
+      <footer>
+        <a class="left" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="framework/img/cc-by-nc.png" /></a>
+        <p class="left">Content created by <a href="https://twitter.com/EssefBeck" target="_blank">Sarah Beck</a> and <a href="https://twitter.com/dear_trudence" target="_blank">Trudy MacNabb</a> for <a prefix="cc: http://creativecommons.org/ns#" href="http://ladieslearningcode.com" property="cc:attributionName" rel="cc:attributionURL">Ladies Learning Code</a></p>
+        <p class="right">Use the left <span class="arrow">&#8592;</span> and right <span class="arrow">&#8594;</span> arrow keys to navigate</p>
+      </footer>
+    </section>
+
+    <section class="slide project" data-markdown>
+      <script type="text/template">
+        #Today&rsquo;s project
+
+        We're going to be data scientists!
+
+        We'll learn to process, manipulate, and sort data using open datasets from [open.canada.ca](http://open.canada.ca). These programs that 'parse' data are used in web apps such as [Open Parliament](https://openparliament.ca/).
+
+        Today, you'll learn to 'think' like a computer as you gather insights from open data provided by The Government of Canada.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+      #Agenda
+      
+      <div class="col-2">
+        <h2>Part 1</h2>
+        <ul>
+            <li>Types</li>
+            <li>Variables</li>
+            <li>Conditionals &amp; Logic</li>
+            <li>Reading a file</li>
+            <li>For loops</li>
+        </ul>
+      </div>
+      
+      <div class="col-2">
+        <h2>Part 2</h2>
+        <ul>
+          <li>Libraries</li>
+          <li>Dictionaries</li>
+          <li>Finding &amp; counting patterns</li>
+          <li>Final Project!</li>
+        </ul>
+      </div>
+      </script>
+    </section>
+
+    <section class="slide title" data-markdown>
+      <script type="text/template">
+        #What is programming?
+        ##There are two things you should know about your computer
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #1. Your computer speaks a different language
+
+        This is how your computer wishes you could speak to it:
+
+        ![](framework/img/workshop/machine-language.jpg)
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #2. Your computer is not very smart
+
+        Computers need:
+
+        * *very specific* instructions
+        * instructions in a form that it can understand
+
+        A programming language makes it easier for you to give the computer instructions.
+      </script>
+    </section>
+
+    <section class="slide language" data-markdown>
+      <script type="text/template">
+        #Programming language
+
+        >It's made up of *simple elements*, that when *combined together*, are used to write a set of *instructions* that the computer then breaks down and interprets as its own language.
+
+        Programming languages have syntax and "grammar rules", just like human languages.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Why Ruby Is Awesome
+
+        *   Free
+        *   Open source
+        *   Made in Japan!
+        *   Great community
+        *   Designed for readability
+
+      </script>
+    </section>
+
+    <section class="slide who-uses" data-markdown>
+      <script type="text/template">
+        #Who uses Ruby?
+
+        * Data Analysis
+        * Scientific Computing
+        * Scripting
+        * Testing
+        * Web Applications (Ruby on Rails)
+        * and some of your favorite websites!
+
+        ![](framework/img/workshop/logo-twitter.png)
+        ![](framework/img/workshop/logo-shopify.png)
+        ![](framework/img/workshop/logo-groupon.png)
+        ![](framework/img/workshop/logo-airbnb.png)
+        ![](framework/img/workshop/logo-soundcloud.png)
+
+      </script>
+    </section>
+
+    <section class="slide centered" data-markdown>
+      <script type="text/template">
+        # Let&rsquo;s get started! <!-- .element: style="font-size:75px;font-weight:normal;" -->
+
+        ![Beyonce - Uh-Huh](http://ell.h-cdn.co/assets/cm/15/01/54a7648407bec_-_bey6.gif) <!-- .element: style="width: 60%" -->
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+      #Development Environment
+
+      You will need:
+
+      1. Ruby 2.2.x installed
+        * **Windows**: http://rubyinstaller.org/
+        * **Mac**: https://www.ruby-lang.org/en/downloads/
+        * Ruby comes by default on Mac OSX and the above link is for different versions!
+      1. Text editor - today we'll be using **[Atom](https://atom.io/)**
+      1. Terminal/Console
+      1. [Learner files](https://github.com/ladieslearningcode/llc-intro-to-ruby-data/archive/master.zip) (contains exercise and solution files)
+      </script>
+    </section>
+
+    <section class="slide centered" data-markdown>
+      <script type="text/template">
+        #Atom Text Editor
+
+        Using a good text editor with integrated and useful features such as syntax highlighting, will help us write code faster with fewer mistakes.
+
+        ![Flawless](http://24.media.tumblr.com/3ef778f016b84d4ea48d58a0c8437d80/tumblr_n0pol8ork51qkomroo1_500.gif) <!-- .element: style="width: 50%" -->
+      </script>
+    </section>
+
+    <section class="slide irb" data-markdown>
+      <script type="text/template">
+        #Interactive Ruby (IRB)
+
+        The *console* is an interactive tool used to test and debug code.
+        Let&rsquo;s open IRB in the *console*:
+
+        | Windows  |  Mac |
+        |---|---|
+        | Open Interactive Ruby from the Ruby section of your Start Menu.  | Open **Applications > Utilities > Terminal**. <br>Type `irb` and hit enter. |
+
+        Now that it's open and running in the console, you'll see this:
+        ```ruby
+        irb(main):001:0>
+        ```
+
+        Type your instructions at the end of the line (with the quotes):
+
+        ```ruby
+        irb(main):001:0> "Hello!"
+        ```
+        The command (instruction) you input will get *evaluated* and a value is returned back to you.
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!-- First Steps -->
+<!-- -------------------- -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Ruby can do math
+
+        Let's try some examples in the console.
+        Remember to input your commands after this line: `irb(main):001:0>`
+
+        Also, numbers don't need quotes like in the previous example. (More on this soon.)
+
+        ```
+        irb(main):001:0> 2 + 2
+        => 4
+        ```
+
+        ```
+        irb(main):001:0> 2 * 15
+        => 30
+        ```
+
+        ```
+        irb(main):001:0> 1 / 2
+        => 0
+        ```
+        >Why is `1 / 2 = 0`?
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Data Types
+
+        We just used the *integer* number **class** but there are many more.
+
+        * Integer/Fixnum (whole numbers)
+        * Float (numbers containing decimals)
+        * String (words, sentences, literal text) - requires quotes
+        * Boolean (`True`, `False`)
+        * [and many more!](https://en.wikibooks.org/wiki/Ruby_Programming/Data_types)
+
+        To figure out the type, add `.class` after the data value.
+
+        ```
+        irb(main):001:0> "hello".class
+        => String
+
+        irb(main):001:0> 42.class
+        => Fixnum
+
+        irb(main):001:0> 3.14159.class
+        => Float
+        ```
+      </script>
+    </section>
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Fun with Data Types
+
+        Let's try some more examples in `irb`.
+
+        Integer (whole numbers)
+        ```
+        irb(main):001:0> 462 * 86
+        => 39832
+        ```
+        Float (numbers containing decimals)
+        ```
+        irb(main):001:0> 3.2 / 2
+        => 1.6
+        ```
+        String (words, sentences, literal text)
+        ```
+        irb(main):001:0> "ladies" + "learning" + "code"
+        => "ladieslearningcode"
+        ```
+        Boolean (`True`, `False`)
+        ```
+        irb(main):001:0> true
+        => true
+        ```
+      </script>
+    </section>
+
+    <section class="slide no-bullet-list" data-markdown>
+      <script type="text/template">
+        #Functions
+
+        * Functions are bundles of instructions that can be re-used
+          * Defined by wrapping the instructions between `def` and `end`
+          * Directly after `def` is the name of the function
+        * Function can take **arguments** and **return** values
+          * After the function name, **arguments** are defined in parentheses, `()`
+        * Functions always `return` 1 thing or a set of things
+
+        ```ruby
+        def functionName(arg1, arg2)
+          set of instructions
+          return answer
+        end
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Define the function
+
+        This doesn't actually run the code.  We're just telling the computer what to expect.
+
+        In the below example, the `add` function takes `a` and `b` as arguments and will **return** the result.
+
+        ```ruby
+        irb(main):001:0> def add(a, b)
+        ...     return a + b
+        ...     end
+        ...
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Call the function
+
+        After *defining* the fuction, *call* it by typing the name of the function, `add()` and substituting values where the arguments were defined `(a,b)`.
+
+        ```ruby
+        irb(main):001:0> add(1, 2)
+        => 3
+        ```
+
+        The benefit is now we can sub in any 2 numbers without having to rewrite the code.
+
+        ```ruby
+        irb(main):001:0> add(3, 4)
+        => 7
+        ```
+        We won't create our own functions in today's exercises, but we'll use those provided by ruby and its libraries.
+      </script>
+    </section>
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Outputting values: `puts`
+
+        The `puts` **function** outputs values to the screen.
+
+        Reminder, use of quotes for *string* data types.
+
+        ```
+        irb(main):001:0> puts "Hello World!"
+        Hello World!
+        => nil
+        ```
+
+        ```
+        irb(main):001:0> puts 2 + 2
+        4
+        => nil
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Outputting values: `print`
+
+        The function `print` can also be used to output values.
+
+        The difference between `puts` and `print` is `puts` adds a new line to end of the output and `print` does not.
+
+        ```
+        irb(main):001:0> puts 2 + 2
+        4
+        => nil
+        ```
+        ```
+        irb(main):001:0> print 2 + 2
+        4=> nil
+        ```
+        Notice the `nil` remains on the same line as the response?
+
+        Let's try it in IRB!
+        ```
+        irb(main):001:0> print "Hello World!"
+        Hello World! => nil
+        ```
+        ```
+        irb(main):001:0> print 2 + 2
+        4 => nil
+        ```
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #What's nil? It's nothing, don't worry.
+
+        Remember how **Functions** always return 1 thing?
+
+        Well, `print` and `puts` are functions.  However, since they only print to the screen they *technically* don't return anything.
+
+        Since Ruby always needs to return something, it returns `nil`, which is computer for **nothing**.
+
+        ![](http://prajer.org/nothing.gif)
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Concatenation
+
+        Ruby comes with a whole set of predefined functions.  These are sets of code that are so regularly used by most programmers that it makes sense for them to be part of the programming language itself.
+
+        One such function is **concatenation**. With this we can "add" strings together. We call this function using the `+` symbol.
+
+        ```
+        irb(main):001:0> print "Ladies " + "Learning " + "Code"
+        Ladies Learning Code => nil
+        ```
+
+        But what if we try to join a string and a number?
+
+        ```ruby
+        irb(main):001:0> print 2 + "2"
+        TypeError: String cannot be coerced into Fixnum
+
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Why did that error happen?
+
+        Ruby needs to know the **type** of data the value is to figure out how to work with it.  Let&rsquo;s look at that error again.
+
+        ```ruby
+        irb(main):001:0> print 2 + "2"
+        TypeError: String cannot be coerced into Fixnum
+        ```
+
+        * The first `2`, inside of `print 2 + "2"` is an integer.
+        * `"2"` enclosed in the quotes, is a **string** type, or "literal text".
+        * Ruby can&rsquo;t add a number and string, so it spits out an error.
+
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!--Typecasting-->
+<!-- -------------------- -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Typecasting: Strings to Numbers
+
+        Ruby can convert the string `"2"` into a number and *change the type*.
+
+        To change the string to an integer (whole number) using the `.to_i` function.  Try it in your console.
+
+        ```
+        irb(main):001:0> print 2 + "2".to_i
+        4 => nil
+        ```
+        `to_i` is another predefined function in Ruby.
+        It converts a string to an integer.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Dot Notation
+
+        The most common way we call functions is with **dot notation**.
+
+        In other words, add a period, then the function name *after* the object you want to call it on.
+
+        For example:
+
+        ```ruby
+        "5".to_i
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Numbers
+
+        Now try dividing 2 numbers and see what value gets returned:
+
+        ```
+        irb(main):001:0> print 1 / 2
+        0 => nil
+        ```
+        This happens because Ruby sees 2 integers and will return an integer. Integer **classes** don&rsquo;t have decimal parts, so it must be converted to **floats**, since this number **class** can handle decimals.
+
+        Use dot notation and the `.to_f` function.
+        ```
+        irb(main):001:0> print 1.to_f / 2.to_f
+        0.5 => nil
+        ```
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Typecasting: Numbers to Strings
+
+        Ruby can also be used to convert numbers to strings.
+
+        ```
+        irb(main):001:0> print 3 + " items in my bento!"
+        TypeError: String cant be coerced into Fixnum
+
+        ```
+        Use the `.to_s` function to convert a number to a string.
+
+        ```
+        irb(main):001:0> print 3.to_s + " items in my bento!"
+        3 items in my bento! => nil
+
+        ```
+
+        The ability to tell Ruby to change the type will come in handy later.
+
+      </script>
+    </section>
+
+
+<!-- -------------------- -->
+<!--Variables-->
+<!-- -------------------- -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Variables
+        In programming, we usually want to store a value to use later.
+        **Variables** store data in your computer&rsquo;s memory.
+
+        Use a **variable name** to fetch their value (kind of like a bookmark in a book). The equal (`=`) symbol *assigns* a value to a variable.
+
+        Let's go over these example:
+
+        ```ruby
+        irb(main):001:0> x = 5
+        irb(main):001:0> y = 4
+        irb(main):001:0> x * y
+        20
+        ```
+
+        ```ruby
+        irb(main):001:0> today = "Saturday"
+        irb(main):001:0> print "Today is " + today
+        Today is Saturday
+        ```
+        You can store almost anything in a variable.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Reassigning Variables
+
+        Variables can be changed after you&rsquo;ve assigned the value by "reassigning" them.
+
+        ```ruby
+        # Remember, we've already set x = 5 and y = 4
+        irb(main):001:0> y = 10
+        irb(main):001:0> x * y
+        ```
+
+        What do you think the value of `x * y` will be? <span class="delayed">50</span>
+
+        Why?
+        You changed <!-- .element: class="delayed" -->`y`, but the old value of `x` is still in memory.
+        Ruby will remember variable names until you close IRB.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Variable naming conventions
+
+        * can only use letters, numbers and the underscore (`_`); no spaces
+        * words can be separated with an underscore `_`
+        i.e. `ladies_learning_code`
+        * cannot begin with a number
+        i.e. `1day` gives you an error while `day1` is fine
+
+        The names we&rsquo;ll use today are descriptive, but otherwise have no special meaning to Ruby.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Pro Tip! Use Comments
+
+        * Programmers use *comments* to leave notes for themselves (and other people reading their code in the future)
+        * Good comments add information that isn&rsquo;t immediately obvious
+        * You&rsquo;ll see more comments throughout the exercises
+        * Feel free to add your own!
+
+        ```
+        # ruby will ignore anything after the # symbol
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Working with user input
+
+        So far, we&rsquo;ve used the console to output message on the screen. Now let's write a program that can say hello to anyone!
+
+        Use the `gets` method to receive data typed into the console. Then you'll see a blank line and the cursor. Type your name in the blank line.
+
+        ```ruby
+        irb(main):001:0> gets
+        Sarah
+        ```
+        Ruby returns the name plus a `\n`. (We'll deal with the `\n` later.)
+
+        ```ruby
+        => "Sarah\n"
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Working with user input: Variables
+
+        Generally, we set the value returned by `gets` to a **variable**.
+
+        ```ruby
+        # Set variable 'name' to value of 'gets'
+        irb(main):001:0> name = gets
+        ```
+
+        Then add your name to the blank line.
+        ```ruby
+        # Set variable 'name' to value of 'gets'
+        irb(main):001:0> name = gets
+        # Add a value for 'name'
+        Sarah
+        ```
+
+        Now, *call* the variable using `name` and it will return the assigned value.
+
+        ```ruby
+        irb(main):001:0> name
+        => "Sarah\n"
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #What is `\n`?
+
+        `\n` is Ruby's way of putting a *new line* after the input.
+        Use the method `chomp` to remove the last character of a string.
+
+        Let's create a program in the console that will remove the `\n` character.
+
+        1.&nbsp;Give a `puts` message to let your user know what you&rsquo;re looking for.
+        ```ruby
+        irb(main):001:0> puts "What is your name?"
+        ```
+        ```ruby
+        #outputs:
+        What is your name?
+        => nil
+        ```
+
+        2.&nbsp;Define a `name` variable and assign the value of `gets` to it.
+        Add `chomp` to remove the new line character.
+        ```ruby
+        irb(main):001:0> name = gets.chomp
+        ```
+
+        3.&nbsp;Type your name in the blank line and hit the **enter** key. The value will be  *returned* to you.
+
+        ```
+        irb(main):001:0> name = gets.chomp
+        Sarah
+        => "Sarah"
+        ```
+
+        4.&nbsp;Type the variable `name` and **enter**.
+
+        ```ruby
+        irb(main):001:0> name
+        => "Sarah"
+        ```
+
+        The name *value* is now assigned to the *variable* and will return without the `\n` character!
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Working with a Text Editor
+
+        Typing into the console is fine to start, but do you really want to type your program every time you run it?
+
+        Let's open our **exercises** folder in Atom to get ready to work in the text editor instead of the console. This will also make it easier to write larger blocks of code.
+
+        Inside of the folder you downloaded today, there a few other folders.
+
+        ```
+        llc-intro-to-ruby-data-master
+          |-- exercises // Exercise files.
+            |-- solutions // Solutions for the exercises.
+          |-- framework // Contains files needed for slide presentation, do not edit!
+          |-- slides.html // This is the file you are viewing right now!
+        ```
+
+        Open Atom and go to **File > Add Project Folder**.
+
+        ![](framework/img/workshop/add-project-1.jpg)
+
+        A popup will appear. Then:
+
+        * navigate to the **llc-intro-to-ruby-data-master** folder
+        * select **exercises** and click **Open**
+
+        The files will now appear in the sidebar.
+      </script>
+    </section>
+
+    <!-- -------------------- -->
+    <!-- Exercise 1: Hello World -->
+    <!-- -------------------- -->
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Class Exercise 1: Hello World!
+
+        Ruby can run your code from a file with a `.rb` **extension**
+        *(<!-- .element: class="note" -->the letters after `.` in a filename tell your computer which program can run it)*
+
+        Let&rsquo;s create our first Ruby file!
+
+        1. Open Atom and choose ***New File*** from the ***File*** menu. Then choose ***Save as...*** from the file menu.
+
+          ![Create a new ruby File](./framework/img/workshop/saving-ruby-file.png)
+
+        1. Enter the name `hello.rb` in the popup box. Make sure to save it into your **exercises** folder.
+
+        1. Now we can add our program to the Ruby file.
+
+          ```ruby
+          # Ask user for input
+          print "Please enter your name: "
+
+          # Assign the input value to a variable
+          # Your program waits for the user to hit enter
+          name = gets.chomp
+
+          # ... then continues to this line
+          puts "Hello " + name
+          ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #But how do we run this file?
+
+        We'll need to use the console and couple of **command line** instructions.
+
+        `cd` means **Change Directory** and is used to move through the file structure
+
+        `ls` is used to **List** the files in the current directory
+
+        ---
+        ###Resources
+        * [Don't Fear the Command Line](http://readwrite.com/2014/07/18/command-line-tutorial-intro)
+        * [Codecademy: Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Class Exercise 1: Hello World (part 2)
+
+        Code in a file is just text until you **run** it through the Ruby program.
+
+        We'll need to navigate to the location of your saved **hello.rb** file using `cd` (change directory) and `ls` (list files).
+
+        Open a new tab in the console. The directory location will default to your user directory and will look something like this:
+
+        ```
+        Computer-Name:~ yourusername$
+        ```
+
+        Type `ls` at the end of this line to list the directories.
+
+        If you saved today's files to your *desktop*, type the command `cd Desktop` to navigate to that folder.
+
+        ```
+        Computer-Name:~ yourusername$ cd Desktop
+        ```
+
+        Navigate only to the **exercises** folder (not the `hello.rb` file).
+
+        ---
+        ###Pro tip!
+        You can continue to use `cd` and `ls` to get to your *exercises* directory OR just type `cd` and *drag* the folder from your Finder/Explorer into the console!
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Class Exercise 1: Hello World (part 2)
+
+        Once in the **exercises** directory, type `ruby hello.rb` and hit `Enter` to run your program.
+        ```
+        Computer-Name:exercises yourusername$ ruby hello.rb
+        ```
+
+        The program should now execute the first line in the `hello.rb` file and ask for your name.
+
+        Type in your name and hit `Enter` again and it will say hello to you. It will look something like this:
+
+        ```
+        Computer-Name:exercises yourusername$ ruby hello.rb
+        Please enter your name: Trudy
+        Hello Trudy
+        Computer-Name:exercises yourusername$
+        ```
+
+        You can run your program as many times as you like by repeating the steps above. Or try changing the greeting in the **hello.rb** file!
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!-- Conditionals & Booleans -->
+<!-- -------------------- -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Conditionals &amp; Logic
+        * The program we just wrote ran straight from top to bottom
+        * What if the program could act differently and decide what to do?
+        * Use conditionals like an `if` statement
+        * Each `if` statement contains a test, and the indented block is the code that will run if the test is `True` but not if it is `False` and looks something like this:
+
+        ```ruby
+        # Not real code
+        if it is cold outside
+            wear a sweater
+        else
+            dress normally :)
+        end
+        ```
+
+        You can also have more than one condition.
+
+        ```ruby
+        # Still not real code
+        if it is cold outside
+            wear a sweater
+        elsif it is raining
+            bring an umbrella
+        else
+            dress normally :)
+        end
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Boolean values
+
+        How does `if` know what&rsquo;s `True` or `False`? We use 'Boolean' statements to test against values.
+
+        Reminder, one equals symbol only *assigns* a value to the variable.
+
+        ```ruby
+        irb(main):001:0> weather = "raining"
+        ```
+
+        To test the values, the double equals symbol (`==`) will evaluate if the value on the right matches the assigned value.
+        ```
+        irb(main):001:0> weather == "cold"
+        => false
+        irb(main):001:0> weather == "raining"
+        => true
+        ```
+        We can use these *statements* with our `if` values to test the weather conditions.
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!-- Exercise 2: Weather  -->
+<!-- -------------------- -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Exercise 2: Weather (15mins)
+
+        Open the file `ex2_weather_advice.rb` in the **exercise** folder and follow the instructions in the file.
+
+        The code snippet in the next slide contains the solution but try to use it as a reference, rather than copy-paste, to understand each line as you type it.
+
+        Try running your file a few times to get different advice (the weather is so unpredictable!)
+
+        **Bonus: ** Update the conditions or add more conditions.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Exercise 2 Solution
+
+        (Also found in your **solutions** folder.)
+
+        ```ruby
+        # file: weather_advice.rb
+        print "What is the weather? (cold, raining, etc.)"
+        weather = gets.chomp
+
+        if weather == "cold"
+            puts "Wear a sweater!"
+        elsif weather == "raining"
+            puts "Bring an umbrella"
+        else
+            puts "Dress normally :)"
+        end
+        ```
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!-- More conditions -->
+<!-- -------------------- -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Testing numbers with Math Comparison Operators
+
+        Just as you could check the exact value of a string or number you can use typical math operators to check relative numeric values
+
+        `>`: Greater than  
+        `<`: Less than  
+        `>=`: Greater than or equal to  
+        `<=`: Less than or equal to
+
+        ```ruby
+        irb(main):001:0> x = 5
+        => 5
+        irb(main):001:0> print x > 5
+        False => nil
+        irb(main):001:0> print x >= 5
+        True => nil
+        ```
+
+        Here we're using the `to_s` function to turn "5" into a string for printing!
+
+        ```ruby
+        irb(main):001:0> if x >= 5
+        ...     print x.to_s + " is greater than or equal to 5"
+        ... else
+        ...     print x.to_s + " is less than 5"
+        ... end
+        ...
+        5 is greater than or equal to 5
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # And / Or
+
+        Sometimes, you can&rsquo;t neatly capture your conditions with one expression. You need to combine multiple expressions to determine what to do next.
+
+        `and`: both things must be true  
+        `or`: either one, or both things must be true
+
+        ```ruby
+        weather = "cold"
+        snowing = True
+
+        irb(main):001:0> if weather == "cold" and snowing == True
+        ...     print "wear a winter jacket"
+        ...   end
+
+        wear a winter jacket
+        irb(main):001:0> if weather == "raining" or snowing == True
+        ...     print "bring a change of socks"
+        ...   end
+        bring a change of socks
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Examples with and/or
+
+        Take note! Whereas in math notation you can write `0 < x < 6`, in ruby you need to split these into separate comparisons
+
+        ```ruby
+        irb(main):001:0> x = 5
+        irb(main):001:0> if x > 0 and x < 6
+        ...     print "x is between 0 and 6."
+        ...   end
+        x is between 0 and 6.
+        ```
+
+        ```ruby
+        irb(main):001:0> if x.class == Float or x.class == Fixnum
+        ...     print "x is a numeric value"
+        ...   end
+        x is a numeric value
+        ```
+
+        ```ruby
+        irb(main):001:0> if x > 10 and x < 0
+        ...     print "x could never be greater than 10 AND less than 0"
+        ...   end
+        # Nothing prints here
+        ```
+
+      </script>
+    </section>
+
+    <!-- TODO: If we have time, create an example using a numeric temperature value to decide what's cold, normal or too hot to handle -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Exercise 3: Smarter Weather (15mins)
+
+        Instead of telling your program if it&rsquo;s cold, you can input the temperature and let it decide what to do.
+
+        Open **smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `and`/`or` to complete the exercise.
+
+        ```ruby
+        # if the weather is greater than or equal to 25 degrees
+        if "replace this with the right condition"
+            print "Go to the beach!"
+        # the weather is less than 25 degrees AND greater than 15 degrees
+        elsif "replace this with the right conditions"
+            # Still warm enough for ice cream!
+        else
+            # Wear a sweater and dream of beaches.
+        end
+        ```
+
+        Feel free to choose your own temperatures and messages :)
+      </script>
+    </section>
+
+    <section class="slide title ruby-background" data-markdown>
+      <script type="text/template">
+        <h1 class="heading-bg">
+          <span>And now for something<br>new and shiny!</span>
+        </h1>
+
+        Source: <!-- .element: class="source note" -->[http://photo.elsoar.com](http://photo.elsoar.com)
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Opening a file
+
+        Computer data are typically stored in files. The data in some files have text (while in others, like images, are&rsquo;s in a format that&rsquo;s only readable by computers).
+
+        We have a couple of `.csv` files from <a href=http://open.canada.ca>open.canada.ca</a> in the exercises folder. Let's try opening and reading the `no-emissions.csv` file.
+
+        ```ruby
+        irb(main):001:0> emissions = File.open(".../llc-intro-to-ruby/exercises/no-emissions.csv")
+        irb(main):001:0> puts emissions.read()
+        # … lots of file data …
+        irb(main):001:0> emissions.close()
+        # When you're done with a file it's a good idea to close it
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # One line at a time
+
+        In order to make use of the data in a file, we need to make sense of small portions of data at a time.
+
+        In the `no-emissions.csv` file, each line of the file represents a country and the amount of nitrogen oxide emissions during a period of time. 
+        
+        Let&rsquo;s print out a few individual lines.
+
+        ```ruby
+        irb(main):001:0> emissions = File.open('./exercises/no-emissions.csv')
+        irb(main):001:0> puts emissions.readline()
+        => "\"Nitrogen oxide emissions by country, 2002 and 2012\",,,,\r\n"
+
+        irb(main):001:0> puts emissions.readline()
+        => ",,,,\r\n"
+
+        irb(main):001:0> puts emissions.readline()
+        => "Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions... etc."
+
+        irb(main):001:0> puts emissions.readline()
+        => "United States,21632,12258,1.8,0.9\r\n"
+
+        irb(main):001:0> emissions.close()
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Comma-Separated Values (CSV) Files
+
+        Let's take closer look at the four printed lines from the previous example.
+
+        ```
+        "\"Nitrogen oxide emissions by country, 2002 and 2012\",,,,\r\n"
+        ",,,,\r\n"
+        "Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions... etc."
+        "United States,21632,12258,1.8,0.9\r\n"
+        ```
+
+        The first line is the title of the file, the second a space, the third is a legend, and the fourth is the first entry.
+
+        Notice that all three lines have columns, separated by a comma (`,`)
+
+        Dividing columns by commas is called Comma Separated Values, or **CSV** that is used to represent spreadsheet-like data.
+
+        ---
+        <!-- .element: class="note" -->**Note**: This is a widely used file-format because it&rsquo;s such a simple representation of rows and columns of data. It doesn&rsquo;t matter whether you&rsquo;re on a Mac, Windows, Linux or even on a web app like Google Docs – everyone can use this data.
+        </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Reading all the lines in a file
+
+        It&rsquo;s all well and good to print out the lines in a file one-at-a-time, but surely, there&rsquo;s a better way to read *all* the lines in a file.
+
+        To perform the same action many times in a row, use **loops**. In Ruby, there are lots of types of loops! 
+        
+        The example below uses a `for` loop to print each of the rows in the file.
+
+        ```ruby
+        irb(main):001:0> emissions = File.open('./exercises/no-emissions.csv')
+        irb(main):002:0> for line in emissions
+        irb(main):003:1> puts line
+        irb(main):004:1> end
+        irb(main):001:0> emissions.close()
+        ```
+        ---
+        ###Resource
+
+        https://docs.ruby.org/2/tutorial/controlflow.html#for-statements
+      </script>
+    </section>
+
+    <section class="slide title" data-markdown>
+      <script type="text/template">
+        #![Bey and Nick hamburger](http://data.whicdn.com/images/179079768/large.gif)
+        # Lunch!
+      </script>
+    </section>
+
+<!-- ==================== -->
+<!-- Afternoon Content-->
+<!-- ==================== -->
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Libraries
+
+        Ruby has wonderful built in **libraries** which are collections of code that other people have written. Today we&rsquo;ll use the **csv** library. It contains instructions that tell Ruby how to work with CSV files.
+
+        This library will help us makes sense of the data contained in a CSV file to learn more from Canada's Open Data.
+
+        More info:<!-- .element: class="footnote" --> https://docs.ruby.org/2/library/csv.html
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Using a library
+
+        So far, we've been writing all our code in the console or in one file. When you use a library, you don't want to copy all that code into your file, otherwise it would become huge!
+
+        In Ruby, you can **require** the functions and other structures so you can use the code without having it in your file. Then you can use functions (and other structures) to do your bidding!
+
+        In your console, import the `csv` library as follows.
+
+        ```ruby
+        irb(main):001:0> require 'csv'
+        ```
+<!-- TEMP: I don't think you can do this in IRB
+        If you then type `csv.` and wait, it will show you a list of everything in that module.
+-->
+        More info:<!-- .element: class="note" --> https://docs.ruby.org/2/tutorial/modules.html
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!-- Reading a CSV -->
+<!-- -------------------- -->
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Reading data from a CSV file
+
+        The CSV library has a number of different tools for extracting actual data from a CSV file. Instead of a line of comma-separated values, we can access individual values easily (like the cells of a spreadsheet).
+
+        We can use `for` loops on CSV files!
+
+        * First we open the file
+        * Then, we require the `csv` library
+        * Then read it!
+
+        <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all functions available in CSV.
+
+        ```
+        irb(main):001:0> require 'csv'
+        irb(main):001:0> emissions_file = CSV.open('./exercises/no-emissions.csv')
+        irb(main):014:0> emissions_file.read
+        ```
+        ** Notice how the data is parsed according to the commas? This means we can read the data by column or by row!
+        <type 'dict'>
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Working in a `foreach` loop
+
+        Before lunch, we learned how the `for` loops can repeat the same set of intructions on a collection of things - like our CSV rows.
+
+        * `foreach` is a built in function in the CSV library that makes reading CSVs easier, it works just like a `for` loop
+        * The `foreach` loop assigns *each row* in turn to the `emissions` variable
+        * We group instructions together with the same indentation
+        * All the instructions in the indented block, are run for each `country`
+
+        ```ruby
+        irb(main):001:0> require 'csv'
+        irb(main):041:0> CSV.foreach('./exercises/no-emissions.csv') do |row|
+        irb(main):042:1* puts row[0].to_s + " emitted " + row[1].to_s + " kilotonnes of nitrogen oxide in 2002."
+        irb(main):043:1> end
+        ...
+        United States emitted 21632 kilotonnes of nitrogen oxide in 2002.
+        Canada emitted 2529 kilotonnes of nitrogen oxide in 2002.
+        Australia emitted 1586 kilotonnes of nitrogen oxide in 2002.
+        Japan emitted 2151 kilotonnes of nitrogen oxide in 2002.
+        # ... Continues for the other countries
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Exercise 4: Find the difference between a country's 2002 emissions and their 2012 emissions (20 mins)
+
+        You already have the tools you need to find the countries in the `no-emissions.csv`.
+
+        You'll find the file **ex4_emissions_comparison.rb** in the **exercises** folder filled with comments. Apply what we've learned so far, as suggested by the comments.
+
+        ```ruby
+        # Require the csv library
+
+        # Open the 'no-emissions.csv' with a foreach loop
+
+        # Loop through each of the rows
+
+            # Compare the integer in the second (row[1]) with the integer in the third row (row[2])
+
+                # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Counting loops
+
+        Sometimes you want to keep track of the number of times something happened.
+
+        We can add `1` to the current value of a variable, and assign it back to the same variable. Ruby processes everything to the right of the equals symbol (`=`) before assigning the result.
+
+        ```ruby
+        irb(main):001:0> count = 0
+        irb(main):001:0> count = count + 1
+        irb(main):001:0> print count
+        1
+        ```
+        We can count the number of countries in **no-emissions.csv** if we increase by one each time it loops.
+
+        ```ruby
+        # file: exercises/demo_loop_count.rb
+        require 'csv'
+
+        count = 0
+
+        CSV.foreach("no-emissions.csv") do |row|
+          count += 1
+        end
+
+        puts "There are " + count.to_s + " countries in the survey."
+
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Finding a word in a string
+
+        So far, we've compared entire strings to each other `"ruby" == "ruby"`.  
+        But what if you want to find a word inside an existing string?
+
+        Ruby has a `.find()` function available on `str` types that tells you where another string appears – its **index**.
+
+        ```ruby
+        irb(main):001:0> "Ladies Learning Code".include?("Code")
+        => true
+        ```
+
+        The `.inlcude?()` function is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
+        
+        *<!-- .element: class="note" --> When we said computers require **exact** instructions, we meant it!*
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Exercise 5: Comparing Rent in Canadian Cities (20 mins)
+        Now that you know how to find a string within a string, we are going to look at some more data!
+        We are going to switch to using the file rent-data.csv, which is the file we will use in our final project!
+
+        If you open the **rent-data.csv** file you can see that both provinces and cities are listed for the historical rent data.
+
+        Remember, `.include?()` returns 'true' if the search string is in the row and 'false' if it is not.
+
+        Open **ex5_city_rent_comparison.rb** and use what you've learned to find the rent prices in neighboring cities.
+
+        * Print a list of cities in your chosen provinces
+        * Print the city with the most expensive rent
+      </script>
+    </section>
+
+    <section class="slide title" data-markdown>
+      <script type="text/template">
+        # So what? I can count all this stuff myself!
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Going bigger
+
+        So far, we've kept the examples small so you can look at the CSV file yourself and see the patterns.
+
+        However the file **rent-data.csv** has 50,000+ entries!!
+
+          Do you want to count those?
+
+          ![Nope, not doing that.](https://secure.static.tumblr.com/77ca0023625f97466d6949685a7a9a9a/ekdqlmj/jynndac2p/tumblr_static_tumblr_static_am0no65tjps84o0cs4wc4g8o4_640.gif)
+
+        Computers will churn through repetitive tasks according to your instructions without stopping for coffee.
+      </script>
+    </section>
+
+<!-- -------------------- -->
+<!-- Begin final exercises -->
+<!-- -------------------- -->
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Final Exercise
+
+        Out of curiousity we are going to take a look at historical rent prices using data from [open.canada.ca.](http://open.canada.ca/)
+
+        * Filter the data for rows that have a number in the "Value" column.
+        * Find the average of "One bedroom units" in a province of your choice.
+        * Find the difference in pricing for "One bedroom units" in the 1980s versus the 1990s in that area.
+
+        **Bonus Exercise**: Use **selection sort** on your list!
+
+        ![Nicki - Work it](http://33.media.tumblr.com/50d6e9b731ca0e739a04ed9255df3228/tumblr_mmjqcuNB9b1ql5yr7o1_500.gif)
+      </script>
+    </section>
+    
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Ruby vs Ruby on Rails
+
+        ## Ruby
+
+        * is a programming language
+        * is what we've been learning today
+
+        ## Ruby on Rails
+
+        * is a web *framework* built with Ruby
+        * was extracted from work done on **Basecamp** at 37signals (2004)
+        * allows you to build fully functional web applications like **Twitter**
+
+        Check out these resources for Ruby on Rails beginners
+
+        * <a href="https://www.codecademy.com/learn/learn-rails">Codecademy</a>
+        * <a href="https://www.youtube.com/user/mackenziechild/featured">Mackenzie Child</a>
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Resources
+
+        ## Tutorials/Courses:
+
+        * [The (Official) Ruby-Lang Tutorial](https://www.ruby-lang.org/en/documentation/)
+        * [Ruby Docs](http://ruby-doc.org/)
+
+        ## Web Development with ruby:
+
+        * [Ruby on Rails](http://rubyonrails.org/)
+        * [Hello Web App](https://www.hellowebapp.com/)
+
+        ## Other:
+
+        * [Ruby Gems](https://rubygems.org/)
+        * Explore more Ladies Learning Code workshops by following our [Roadmap](http://ladieslearningcode.com/roadmap/).
+      </script>
+    </section>
+
+    <section class="slide centered" data-markdown>
+      <script type="text/template">
+        #Questions?
+
+        ![A-Ok](http://ak-hdl.buzzfed.com/static/2015-08/24/10/imagebuzz/webdr11/anigif_optimized-23047-1440425651-7.gif) <!-- .element: style="width: 50%" -->
+      </script>
+    </section>
+
+    <!-- Last slide -->
+    <section class="slide last">
+      <h1>Thank you!</h1>
+      <h2 class="heading-bg">
+        <span>Fundamentals of Programming:<br> Introduction to Ruby</span>
+      </h2>
+
+      <!-- <img class="instructor" src="http://cl.ly/image/0r3Q3H110G36/profile-generic.jpg" alt="instructor name">
+      <h2><span class="cursive">with</span> Instructor Name</h2>
+      <ul>
+        <li><a href="mailto:">hello@email.com</a></li>
+        <li><a href="#">mywebsite.com</a></li>
+        <li><a href="http://twitter.com/">@twitter</a></li>
+      </ul> -->
+
+      <p class="attribution">Slide presentation created by <a href="http://christinatruong.com">Christina Truong</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
+    </section>
+  </main><!-- cls main section -->
+
+  <script src="framework/scripts/jquery-1.11.0.min.js"></script>
+  <script src="framework/scripts/slideshow.js"></script>
+
+  <!-- Uncomment the plugins you need -->
+  <script src="framework/scripts/plugins/css-edit.js"></script>
+  <script src="framework/scripts/plugins/css-snippets.js"></script>
+  <script src="framework/scripts/plugins/css-controls.js"></script>
+  <!-- <script src="plugins/code-highlight.js"></script>-->
+
+  <script src="framework/scripts/plugins/markdown/marked.js"></script>
+  <script src="framework/scripts/plugins/markdown/markdown.js"></script>
+  <script src="framework/scripts/plugins/highlight/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="framework/scripts/llc.js"></script>
+  <script>
+    var slideshow = new SlideShow();
+
+    // Grabs all the .snippet elements
+    var snippets = document.querySelectorAll('.snippet');
+    for(var i=0; i<snippets.length; i++) {
+      new CSSSnippet(snippets[i]);
+    }
+  </script>
+</body>
+</html>

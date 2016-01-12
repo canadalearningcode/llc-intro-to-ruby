@@ -1,0 +1,37 @@
+//---------------
+// VARIABLES
+//---------------
+
+// Colours
+//---------------
+$llc-pink:              #b109aa;
+$black:                 #000;
+$gray-dark:             #222;
+$gray:                  #444;
+$gray-light:            #bdc3c7;
+$white:                 #fff;
+
+
+// Typography
+//---------------
+// Font families
+$quicksand:             'Quicksand', sans-serif;
+$pacifico:              'Pacifico', cursive;
+$open-sans:             'Open Sans', sans-serif;
+$monserrat:             'Montserrat', sans-serif;
+$heading-font:          $quicksand;
+$base-font:             $monserrat;
+$cursive:               $pacifico;
+
+// Fixed font sizes
+// No slide scaling based on window size as in reveal.js
+$font-size-base:        32px;
+$font-size-sm:          $font-size-base - 4;
+$font-size-xsm:         $font-size-base - 10;
+$font-size-footnote:    $font-size-base - 16;
+$font-size-heading:     40px;
+$font-size-heading-lg:  75px;
+$font-size-heading-sm:  28px;
+$font-size-code:        20px;
+$line-height:           1.4;
+
