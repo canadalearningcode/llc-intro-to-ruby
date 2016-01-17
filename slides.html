@@ -293,7 +293,7 @@
         * Integer/Fixnum (whole numbers)
         * Float (numbers containing decimals)
         * String (words, sentences, literal text) - requires quotes
-        * Boolean (`True`, `False`)
+        * Boolean (`true`, `false`)
         * [and many more!](https://en.wikibooks.org/wiki/Ruby_Programming/Data_types)
 
         To figure out the type, add `.class` after the data value.
@@ -331,7 +331,7 @@
         irb(main):001:0> "ladies" + "learning" + "code"
         => "ladieslearningcode"
         ```
-        Boolean (`True`, `False`)
+        Boolean (`true`, `false`)
         ```
         irb(main):001:0> true
         => true
@@ -906,7 +906,7 @@
         * The program we just wrote ran straight from top to bottom
         * What if the program could act differently and decide what to do?
         * Use conditionals like an `if` statement
-        * Each `if` statement contains a test, and the indented block is the code that will run if the test is `True` but not if it is `False` and looks something like this:
+        * Each `if` statement contains a test, and the indented block is the code that will run if the test is `true` but not if it is `false` and looks something like this:
 
         ```ruby
         # Not real code
@@ -936,7 +936,7 @@
       <script type="text/template">
         # Boolean values
 
-        How does `if` know what&rsquo;s `True` or `False`? We use 'Boolean' statements to test against values.
+        How does `if` know what&rsquo;s `true` or `false`? We use 'Boolean' statements to test against values.
 
         Reminder, one equals symbol only *assigns* a value to the variable.
 
@@ -1014,9 +1014,9 @@
         irb(main):001:0> x = 5
         => 5
         irb(main):001:0> print x > 5
-        False => nil
+        false => nil
         irb(main):001:0> print x >= 5
-        True => nil
+        true => nil
         ```
 
         Here we're using the `to_s` function to turn "5" into a string for printing!
@@ -1044,14 +1044,14 @@
 
         ```ruby
         weather = "cold"
-        snowing = True
+        snowing = true
 
-        irb(main):001:0> if weather == "cold" and snowing == True
+        irb(main):001:0> if weather == "cold" and snowing == true
         ...     print "wear a winter jacket"
         ...   end
 
         wear a winter jacket
-        irb(main):001:0> if weather == "raining" or snowing == True
+        irb(main):001:0> if weather == "raining" or snowing == true
         ...     print "bring a change of socks"
         ...   end
         bring a change of socks
@@ -1386,7 +1386,7 @@
         => true
         ```
 
-        The `.inlcude?()` function is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
+        The `.include?()` function is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
         
         *<!-- .element: class="note" --> When we said computers require **exact** instructions, we meant it!*
       </script>
