@@ -5,8 +5,10 @@ We want to be able to dive right in and start learning at the workshop so there 
 HOW TO PREPARE:
  
 1. Install Ruby
+
 Mac Users:
 Ruby is already on your computer. It comes with it! You just need to make sure you can open the application "Terminal". Go to Applications > Utilities > Terminal.
+
 Windows Users:
 (if you are on your work computer, you may have to ask IT at work if you don't have administrator privileges)
 Go to http://rubyinstaller.org
@@ -23,7 +25,7 @@ Click 'Install'
 Click 'Finish' when you see the completion window
 If you run into trouble with these instructions, don't worry! Just arrive a few minutes early on Saturday (anytime after 9:15 am) and one of our amazing developer volunteers will help you out.
  
-2. Download a good text editor: Sublime Text www.sublimetext.com
+2. Download a good text editor: Atom Editor https://atom.io, or Sublime Text https://www.sublimetext.com
  
 3. Download the Learner Materials here: https://github.com/ladieslearningcode/llc-intro-to-ruby/archive/master.zip
  
