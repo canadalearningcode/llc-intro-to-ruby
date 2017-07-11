@@ -1377,9 +1377,9 @@
         # Finding a word in a string
 
         So far, we've compared entire strings to each other `"ruby" == "ruby"`.  
-        But what if you want to find a word inside an existing string?
+        But what if you want to check for a word inside an existing string?
 
-        Ruby has a `.find()` function available on `str` types that tells you where another string appears – its **index**.
+        Ruby has an `.include()` method available on `string` types that tells you if another string appears – it returns a **boolean**.
 
         ```ruby
         irb(main):001:0> "Ladies Learning Code".include?("Code")
