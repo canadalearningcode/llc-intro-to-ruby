@@ -8,7 +8,7 @@ require 'csv'
 highest_rent = 0
 highest_rent_city_name = ""
 
-CSV.foreach('rent-data.csv', :encoding => 'ISO-8859-1') do |row|
+CSV.foreach('rent-data.csv') do |row|
   # Loop through each of the rows
     # Compare cities using or/and statements to narrow down the data
     if ((row.include? "Edmonton, Alberta" or row.include? "Toronto, Ontario") and row.include? "2008")
