@@ -1130,7 +1130,7 @@
       <script type="text/template">
         # Opening a file
 
-        Computer data are typically stored in files. The data in some files have text (while in others, like images, are&rsquo;s in a format that&rsquo;s only readable by computers).
+        Computer data are typically stored in files. The data in some files have text (while in others, like images, are in a format that&rsquo;s only readable by computers).
 
         We have a couple of `.csv` files from <a href=http://open.canada.ca>open.canada.ca</a> in the exercises folder. Let's try opening and reading the `no-emissions.csv` file.
 
@@ -1275,8 +1275,8 @@
 
         We can use `for` loops on CSV files!
 
-        * First we open the file
-        * Then, we require the `csv` library
+        * First we require the `csv` library
+        * Then, we open the file
         * Then read it!
 
         <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all functions available in CSV.
@@ -1295,7 +1295,7 @@
       <script type="text/template">
         # Working in a `foreach` loop
 
-        Before lunch, we learned how the `for` loops can repeat the same set of intructions on a collection of things - like our CSV rows.
+        Before lunch, we learned how the `for` loops can repeat the same set of instructions on a collection of things - like our CSV rows.
 
         * `foreach` is a built in function in the CSV library that makes reading CSVs easier, it works just like a `for` loop
         * The `foreach` loop assigns *each row* in turn to the `emissions` variable
@@ -1377,9 +1377,9 @@
         # Finding a word in a string
 
         So far, we've compared entire strings to each other `"ruby" == "ruby"`.  
-        But what if you want to find a word inside an existing string?
+        But what if you want to check for a word inside an existing string?
 
-        Ruby has a `.find()` function available on `str` types that tells you where another string appears – its **index**.
+        Ruby has an `.include?()` method available on `string` types that tells you if another string appears – it returns a **boolean**.
 
         ```ruby
         irb(main):001:0> "Ladies Learning Code".include?("Code")

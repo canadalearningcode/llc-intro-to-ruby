@@ -2,9 +2,11 @@
 require 'csv'
 
 # Open the 'rent-data.csv' with a foreach loop
+# for now it is okay for them to be blank
 
-# Loop through each of the rows
+# default variable for highest rent
 
-    # Compare the integer in the second (row[1]) with the integer in the third row (row[2])
+  # Loop through each of the rows
+    # Compare cities using or/and statements to narrow down the data
 
-        # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+# Print info about the city with the highest rent
