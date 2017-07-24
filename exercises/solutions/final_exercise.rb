@@ -16,7 +16,7 @@ require 'csv'
 CSV.open("Output.csv", "wb") do |csv|
 
   # Read in the CSV
-  CSV.foreach('exercises/rent-data.csv', :encoding => 'ISO-8859-1') do |row|
+  CSV.foreach('exercises/rent-data.csv') do |row|
     # checks for VALUE field to be above 0 - but I already filtered the non-zero entries out to cut down on size
     if row[7].to_i > 0 and row[0].to_i > 1980 and row[0].to_i < 1990 and row[1].include? "Edmonton"
           # Adding the filtered data to a new file.
