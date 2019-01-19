@@ -1,6 +1,6 @@
-#Ladies Learning Code
+# Ladies Learning Code
 
-##Intro to Ruby
+## Intro to Ruby
 
 A full day introductory Ruby workshop.
 
