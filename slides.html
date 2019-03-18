@@ -1175,30 +1175,6 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # Comma-Separated Values (CSV) Files
-
-        Let's take closer look at the four printed lines from the previous example.
-
-        ```
-        "\"Nitrogen oxide emissions by country, 2002 and 2012\",,,,\r\n"
-        ",,,,\r\n"
-        "Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions... etc."
-        "United States,21632,12258,1.8,0.9\r\n"
-        ```
-
-        The first line is the title of the file, the second a space, the third is a legend, and the fourth is the first entry.
-
-        Notice that all three lines have columns, separated by a comma (`,`)
-
-        Dividing columns by commas is called Comma Separated Values, or **CSV** that is used to represent spreadsheet-like data.
-
-        ---
-        <!-- .element: class="note" -->**Note**: This is a widely used file-format because it&rsquo;s such a simple representation of rows and columns of data. It doesn&rsquo;t matter whether you&rsquo;re on a Mac, Windows, Linux or even on a web app like Google Docs – everyone can use this data.
-        </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
         # Reading all the lines in a file
 
         It&rsquo;s all well and good to print out the lines in a file one-at-a-time, but surely, there&rsquo;s a better way to read *all* the lines in a file.
@@ -1231,6 +1207,31 @@
 <!-- ==================== -->
 <!-- Afternoon Content-->
 <!-- ==================== -->
+
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Comma-Separated Values (CSV) Files
+
+        Let's take a closer look at the first four lines in the file `no-emissions.csv`:
+
+        ```
+        1. "Nitrogen oxide emissions by country, 2002 and 2012",,,,
+        2. ,,,,
+        3. Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions (kilotonnes),2002 Nitrogen oxide emissions intensity (tonnes per million US$ GDP),2012 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)
+        4. United States,21632,12258,1.8,0.9
+        ```
+
+        The first line is the title of the file, the second a space, the third is a legend, and the fourth is the first entry.
+
+        Notice that all three lines have columns, separated by a comma (`,`)
+
+        Dividing columns by commas is called Comma Separated Values, or **CSV** that is used to represent spreadsheet-like data.
+
+        ---
+        <!-- .element: class="note" -->**Note**: This is a widely used file-format because it&rsquo;s such a simple representation of rows and columns of data. It doesn&rsquo;t matter whether you&rsquo;re on a Mac, Windows, Linux or even on a web app like Google Docs – everyone can use this data.
+        </script>
+    </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
