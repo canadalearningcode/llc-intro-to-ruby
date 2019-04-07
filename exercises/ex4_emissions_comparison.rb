@@ -1,10 +1,12 @@
 # Require the csv library
 require 'csv'
 
-# Open the 'no-emissions.csv' with a foreach loop
+# Read the file 'no-emissions.csv' using the library
 
-# Loop through each of the rows
+# Loop through the rows 3 to 35
 
-    # Compare the integer in the second entry (row[1]) with the integer in the third entry (row[2]) of the current row
+    # Go to next row if second column is empty
 
-        # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+    # Compare the integer in the second column (row[1]) with the integer in the third column (row[2])
+
+    # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"

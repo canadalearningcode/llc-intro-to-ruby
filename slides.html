@@ -1213,7 +1213,7 @@
       <script type="text/template">
         # Comma-Separated Values (CSV) Files
 
-        Let's take a closer look at the first four lines in the file `no-emissions.csv`:
+        Let's take a closer look at the first few lines in the file `no-emissions.csv`:
 
         ```
         1. "Nitrogen oxide emissions by country, 2002 and 2012",,,,
@@ -1231,6 +1231,59 @@
         ---
         <!-- .element: class="note" -->**Note**: This is a widely used file-format because it&rsquo;s such a simple representation of rows and columns of data. It doesn&rsquo;t matter whether you&rsquo;re on a Mac, Windows, Linux or even on a web app like Google Docs – everyone can use this data.
         </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Comma-Separated Values (CSV) Files
+
+        Let's take a closer look at the first few lines in the file `no-emissions.csv`:
+
+        ```
+        1. "Nitrogen oxide emissions by country, 2002 and 2012",,,,
+        2. ,,,,
+        3. Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions (kilotonnes),2002 Nitrogen oxide emissions intensity (tonnes per million US$ GDP),2012 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)
+        4. United States,21632,12258,1.8,0.9
+        5. Canada,2529,1862,2.4,1.4
+        6. Australia,1586,1707,2.4,2
+        ```
+
+        This is how the data would look like as a spreadsheet:
+
+        <table class="csv_table" style="">
+        <tr>
+            <td>Nitrogen oxide emissions by country, 2002 and 2012</td>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr>
+            <td>Country</td>
+            <td>2002 Nitrogen oxide emissions (kilotonnes)</td>
+            <td>2012 Nitrogen oxide emissions (kilotonnes)</td>
+            <td>2002 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)</td>
+            <td>2012 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)</td>
+        </tr>
+        <tr> <td>United States</td> <td>21632</td> <td>12258</td> <td>1.8</td> <td>0.9</td> </tr>
+        <tr> <td>Canada</td> <td>2529</td> <td>1862</td> <td>2.4</td> <td>1.4</td> </tr>
+        <tr> <td>Australia</td> <td>1586</td> <td>1707</td> <td>2.4</td> <td>2</td> </tr>
+        </table>
+
+        <style>
+        .csv_table {
+            font-family: Andale Mono, Monaco, monospace;
+            font-size: 15px;
+            background: rgba(255, 255, 255, .5);
+            table-layout: fixed;
+            width:100%;
+        }
+        .csv_table td {
+            padding: 0.4em;
+            height: 2em;
+            vertical-align: top;
+        }
+        </style>
+
+      </script>
     </section>
 
     <section class="slide" data-markdown>
@@ -1272,49 +1325,97 @@
       <script type="text/template">
         # Reading data from a CSV file
 
-        The CSV library has a number of different tools for extracting actual data from a CSV file. Instead of a line of comma-separated values, we can access individual values easily (like the cells of a spreadsheet).
+        The CSV library helps us access comma-separated-values using row and column numbers:
 
-        We can use `for` loops on CSV files!
+        * Import the `csv` library,
+        * Read the data from the file using the library (`CSV.read`),
+        * Access data by row and column (`data[row][column]`)
 
-        * First we require the `csv` library
-        * Then, we open the file
-        * Then read it!
+        ```ruby
+        irb> require 'csv'
+        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data[4][0]
+        => "Canada"
+        irb> data[4][1]
+        => "2529"
+        irb> data[4][2]
+        => "1862"
+        ```
 
+        <!-- .element: class="note" -->
         <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all functions available in CSV.
-
-        ```
-        irb(main):001:0> require 'csv'
-        irb(main):001:0> emissions_file = CSV.open('./exercises/no-emissions.csv')
-        irb(main):014:0> emissions_file.read
-        ```
-        ** Notice how the data is parsed according to the commas? This means we can read the data by column or by row!
-        <type 'dict'>
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # Working in a `foreach` loop
+        # Arrays
 
-        Before lunch, we learned how the `for` loops can repeat the same set of instructions on a collection of things - like our CSV rows.
+        The CSV library provides data using Arrays. Array is another fundamental data type that represents a sequence of items.
 
-        * `foreach` is a built in function in the CSV library that makes reading CSVs easier, it works just like a `for` loop
-        * The `foreach` loop assigns *each row* in turn to the `emissions` variable
-        * We group instructions together with the same indentation
-        * All the instructions in the indented block, are run for each `country`
+        CSV data is an Array of rows, and each row is an Array of Strings (the comma-separated values).
+
+        The position of an item in an Array is called an 'index', and the first item has index 0 (think distance from beginning).
+
 
         ```ruby
-        irb(main):001:0> require 'csv'
-        irb(main):041:0> CSV.foreach('./exercises/no-emissions.csv') do |row|
-        irb(main):042:1* puts row[0].to_s + " emitted " + row[1].to_s + " kilotonnes of nitrogen oxide in 2002."
-        irb(main):043:1> end
-        ...
-        United States emitted 21632 kilotonnes of nitrogen oxide in 2002.
-        Canada emitted 2529 kilotonnes of nitrogen oxide in 2002.
-        Australia emitted 1586 kilotonnes of nitrogen oxide in 2002.
-        Japan emitted 2151 kilotonnes of nitrogen oxide in 2002.
-        # ... Continues for the other countries
+        irb> require 'csv'
+        irb> data = CSV.read('./exercises/no-emissions.csv')
+        => [["Nitrogen oxide emissions by country, 2002 and 2012", nil, nil, nil, nil], [nil, nil, nil, nil, nil]...
+        irb> data.class
+        => Array
+        irb> data[4]
+        => ["Canada", "2529", "1862", "2.4", "1.4"]
+        irb> data[4].class
+        => Array
+        irb> data[4][0]
+        => "Canada"
+        irb> data[4][0].class
+        => String
         ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Array ranges
+
+        We can also select a range of items from an array by specifying the indices of the first and the last item:
+
+        ```ruby
+        irb> require 'csv'
+        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data[4..6]
+        => [["Canada", "2529", "1862", "2.4", "1.4"],
+            ["Australia", "1586", "1707", "2.4", "2"],
+            ["Japan", "2151", "1627", "0.6", "0.4"]]
+        irb> data[4][0..2]
+        => ["Canada", "2529", "1862"]
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Looping over Arrays
+
+        We can loop over items in an Array. This means we can loop over selected rows in CSV data!
+
+
+        ```ruby
+        require 'csv'
+        data = CSV.read('./exercises/no-emissions.csv')
+        for row in data[3..35]
+            country = row[0]
+            emissions2002 = row[1]
+            if emissions2002 != nil
+              puts "In 2002 " + country + " emitted " + emissions2002 + " kilotonnes."
+            end
+        end
+        ```
+
+        Sometimes we need to work with messy data. Above, we selected only relevant rows (3 to 35), and avoided printing that pesky row that separates the two sets of countries.
+
       </script>
     </section>
 
@@ -1322,21 +1423,20 @@
       <script type="text/template">
         # Exercise 4: Find the difference between a country's 2002 emissions and their 2012 emissions (20 mins)
 
-        You already have the tools you need to find the countries in the `no-emissions.csv`.
-
         You'll find the file **ex4_emissions_comparison.rb** in the **exercises** folder filled with comments. Apply what we've learned so far, as suggested by the comments.
 
         ```ruby
         # Require the csv library
 
-        # Open the 'no-emissions.csv' with a foreach loop
+        # Read the file 'no-emissions.csv' using the library
 
-        # Loop through each of the rows
+        # Loop through the rows 3 to 35
 
-            # Compare the integer in the second (row[1]) with the integer in the third row (row[2])
+            # Go to next row if second column is empty
 
-                # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+            # Compare the integer in the second column (row[1]) with the integer in the third column (row[2])
 
+            # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
         ```
       </script>
     </section>
@@ -1355,7 +1455,7 @@
         irb(main):001:0> print count
         1
         ```
-        We can count the number of countries in **no-emissions.csv** if we increase by one each time it loops.
+        We can count the number of countries in **no-emissions.csv** if we increase by one for each row we loop over.
 
         ```ruby
         # file: exercises/demo_loop_count.rb
@@ -1363,12 +1463,14 @@
 
         count = 0
 
-        CSV.foreach("no-emissions.csv") do |row|
-          count += 1
+        for row in CSV.read("no-emissions.csv")
+            # Ignore irrelevant rows
+            if row[1].to_i > 0
+              count += 1
+            end
         end
 
         puts "There are " + count.to_s + " countries in the survey."
-
         ```
       </script>
     </section>
