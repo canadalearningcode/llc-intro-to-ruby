@@ -9,24 +9,58 @@ to happen for the values. The header is:
 Ref_Date, GEO, Geographical classification, STRUCTURE, UNIT, Vector, Coordinate,Value
 and full dataset (11MB) can be downloaded here: (You will have to rename it)
 http://open.canada.ca/data/en/dataset/1146388b-a150-4e70-98ec-eb40cb9083c8
+
+---
+April 9 2019
+Jakob Leben - jakob.leben@gmail.com
+
+Adapted to use only the Ruby features presented on the slides.
 =end
+
 require 'csv'
 
-# Create a new CSV to store values
-CSV.open("Output.csv", "wb") do |csv|
+# Function 'average_rent':
+#     Find average rent for a specific type of rental units
+#     in a specific province and in a specific decade.
+# Arguments:
+#     - data: CSV data returned by CSV.read
+#     - selected_type: Type of rental unit of interest (for example "One bedroom units")
+#     - selected_province: Province of interest (for example "Alberta")
+#     - decade: First year in the decade of interest (for example 1980)
 
-  # Read in the CSV
-  CSV.foreach('exercises/rent-data.csv', :encoding => 'ISO-8859-1') do |row|
-    # checks for VALUE field to be above 0 - but I already filtered the non-zero entries out to cut down on size
-    if row[7].to_i > 0 and row[0].to_i > 1980 and row[0].to_i < 1990 and row[1].include? "Edmonton"
-          # Adding the filtered data to a new file.
-          csv << row
-          # puts row
+def average_rent(data, selected_type, selected_province, decade)
+    count = 0
+    rent_sum = 0
+
+    for row in data
+        year = row[0].to_i
+        location = row[1]
+        type = row[4]
+        rent = row[7].to_i
+
+        if type == selected_type and location.include? selected_province and year >= decade and year < decade + 10
+            count += 1
+            rent_sum += rent
+        end
     end
 
-    # selection sort
-  end
+    if count == 0
+        return 0
+    else
+        return rent_sum / count
+    end
 end
+
+type = "One bedroom units"
+province = "Alberta"
+
+data = CSV.read('exercises/rent-data.csv')
+rent_80s = average_rent(data, type, province, 1980)
+rent_90s = average_rent(data, type, province, 1990)
+
+puts "Average rent for " + type + " in " + province + " in the 80s was $" + rent_80s.to_s
+puts "Average rent for " + type + " in " + province + " in the 90s was $" + rent_90s.to_s
+puts "Difference is: $" + (rent_90s - rent_80s).to_s
 
 =begin
 # Selection sort (very slow on large lists)

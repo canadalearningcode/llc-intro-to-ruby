@@ -1,12 +1,17 @@
 # Require the csv library
 require 'csv'
 
-# Open the 'rent-data.csv' with a foreach loop
-# for now it is okay for them to be blank
+# Read the file 'no-emissions.csv' using the library
 
-# default variable for highest rent
+# Loop through each of the rows
 
-  # Loop through each of the rows
-    # Compare cities using or/and statements to narrow down the data
+    # If this row is for a city of interest
 
-# Print info about the city with the highest rent
+        # Print the row
+
+        # If the rent is the highest so far
+
+            # Save the rent and the city name in variables
+
+
+# Print the highest rent and the city it was found in

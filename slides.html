@@ -238,17 +238,17 @@
         |---|---|
         | Open Interactive Ruby from the Ruby section of your Start Menu.  | Open **Applications > Utilities > Terminal**. <br>Type `irb` and hit enter. |
 
-        Now that it's open and running in the console, you'll see this:
+        Now that it's open and running in the console, you'll see this *prompt*:
         ```ruby
         irb(main):001:0>
         ```
-
-        Type your instructions at the end of the line (with the quotes):
+        You can enter Ruby instructions after the prompt and press the Enter or Return key to *evaluate* them. A value is returned back to you, and then another prompt is displayed:
 
         ```ruby
         irb(main):001:0> "Hello!"
+        => "Hello!"
+        irb(main):002:0>
         ```
-        The command (instruction) you input will get *evaluated* and a value is returned back to you.
       </script>
     </section>
 
@@ -260,23 +260,22 @@
       <script type="text/template">
         #Ruby can do math
 
-        Let's try some examples in the console.
-        Remember to input your commands after this line: `irb(main):001:0>`
+        Let's try some useful instructions in the console.
 
-        Also, numbers don't need quotes like in the previous example. (More on this soon.)
+        <!-- .element: class="note" --> In the rest of the slides, we simply show `irb>` in place of the IRB prompt.
 
         ```
-        irb(main):001:0> 2 + 2
+        irb> 2 + 2
         => 4
         ```
 
         ```
-        irb(main):001:0> 2 * 15
+        irb> 2 * 15
         => 30
         ```
 
         ```
-        irb(main):001:0> 1 / 2
+        irb> 1 / 2
         => 0
         ```
         >Why is `1 / 2 = 0`?
@@ -299,13 +298,13 @@
         To figure out the type, add `.class` after the data value.
 
         ```
-        irb(main):001:0> "hello".class
+        irb> "hello".class
         => String
 
-        irb(main):001:0> 42.class
+        irb> 42.class
         => Fixnum
 
-        irb(main):001:0> 3.14159.class
+        irb> 3.14159.class
         => Float
         ```
       </script>
@@ -318,22 +317,22 @@
 
         Integer (whole numbers)
         ```
-        irb(main):001:0> 462 * 86
+        irb> 462 * 86
         => 39832
         ```
         Float (numbers containing decimals)
         ```
-        irb(main):001:0> 3.2 / 2
+        irb> 3.2 / 2
         => 1.6
         ```
         String (words, sentences, literal text)
         ```
-        irb(main):001:0> "ladies" + "learning" + "code"
+        irb> "ladies" + "learning" + "code"
         => "ladieslearningcode"
         ```
         Boolean (`true`, `false`)
         ```
-        irb(main):001:0> true
+        irb> true
         => true
         ```
       </script>
@@ -368,9 +367,9 @@
         In the below example, the `add` function takes `a` and `b` as arguments and will **return** the result.
 
         ```ruby
-        irb(main):001:0> def add(a, b)
-        ...     return a + b
-        ...     end
+        irb> def add(a, b)
+        ...      return a + b
+        ...  end
         ...
         ```
       </script>
@@ -383,14 +382,14 @@
         After *defining* the function, *call* it by typing the name of the function, `add()` and substituting values where the arguments were defined `(a,b)`.
 
         ```ruby
-        irb(main):001:0> add(1, 2)
+        irb> add(1, 2)
         => 3
         ```
 
         The benefit is now we can sub in any 2 numbers without having to rewrite the code.
 
         ```ruby
-        irb(main):001:0> add(3, 4)
+        irb> add(3, 4)
         => 7
         ```
         We won't create our own functions in today's exercises, but we'll use those provided by ruby and its libraries.
@@ -405,13 +404,13 @@
         Reminder, use of quotes for *string* data types.
 
         ```
-        irb(main):001:0> puts "Hello World!"
+        irb> puts "Hello World!"
         Hello World!
         => nil
         ```
 
         ```
-        irb(main):001:0> puts 2 + 2
+        irb> puts 2 + 2
         4
         => nil
         ```
@@ -427,24 +426,24 @@
         The difference between `puts` and `print` is `puts` adds a new line to end of the output and `print` does not.
 
         ```
-        irb(main):001:0> puts 2 + 2
+        irb> puts 2 + 2
         4
         => nil
         ```
         ```
-        irb(main):001:0> print 2 + 2
+        irb> print 2 + 2
         4=> nil
         ```
         Notice the `nil` remains on the same line as the response?
 
         Let's try it in IRB!
         ```
-        irb(main):001:0> print "Hello World!"
-        Hello World! => nil
+        irb> print "Hello World!"
+        Hello World!=> nil
         ```
         ```
-        irb(main):001:0> print 2 + 2
-        4 => nil
+        irb> print 2 + 2
+        4=> nil
         ```
 
       </script>
@@ -474,14 +473,14 @@
         One such function is **concatenation**. With this we can "add" strings together. We call this function using the `+` symbol.
 
         ```
-        irb(main):001:0> print "Ladies " + "Learning " + "Code"
+        irb> print "Ladies " + "Learning " + "Code"
         Ladies Learning Code => nil
         ```
 
         But what if we try to join a string and a number?
 
         ```ruby
-        irb(main):001:0> print 2 + "2"
+        irb> print 2 + "2"
         TypeError: String cannot be coerced into Fixnum
 
         ```
@@ -495,7 +494,7 @@
         Ruby needs to know the **type** of data the value is to figure out how to work with it.  Let&rsquo;s look at that error again.
 
         ```ruby
-        irb(main):001:0> print 2 + "2"
+        irb> print 2 + "2"
         TypeError: String cannot be coerced into Fixnum
         ```
 
@@ -519,7 +518,7 @@
         To change the string to an integer (whole number) using the `.to_i` function.  Try it in your console.
 
         ```
-        irb(main):001:0> print 2 + "2".to_i
+        irb> print 2 + "2".to_i
         4 => nil
         ```
         `to_i` is another predefined function in Ruby.
@@ -550,14 +549,14 @@
         Now try dividing 2 numbers and see what value gets returned:
 
         ```
-        irb(main):001:0> print 1 / 2
+        irb> print 1 / 2
         0 => nil
         ```
         This happens because Ruby sees 2 integers and will return an integer. Integer **classes** don&rsquo;t have decimal parts, so it must be converted to **floats**, since this number **class** can handle decimals.
 
         Use dot notation and the `.to_f` function.
         ```
-        irb(main):001:0> print 1.to_f / 2.to_f
+        irb> print 1.to_f / 2.to_f
         0.5 => nil
         ```
 
@@ -571,14 +570,14 @@
         Ruby can also be used to convert numbers to strings.
 
         ```
-        irb(main):001:0> print 3 + " items in my bento!"
+        irb> print 3 + " items in my bento!"
         TypeError: String cant be coerced into Fixnum
 
         ```
         Use the `.to_s` function to convert a number to a string.
 
         ```
-        irb(main):001:0> print 3.to_s + " items in my bento!"
+        irb> print 3.to_s + " items in my bento!"
         3 items in my bento! => nil
 
         ```
@@ -604,16 +603,16 @@
         Let's go over these example:
 
         ```ruby
-        irb(main):001:0> x = 5
-        irb(main):001:0> y = 4
-        irb(main):001:0> x * y
-        20
+        irb> x = 5
+        irb> y = 4
+        irb> x * y
+        => 20
         ```
 
         ```ruby
-        irb(main):001:0> today = "Saturday"
-        irb(main):001:0> print "Today is " + today
-        Today is Saturday
+        irb> today = "Saturday"
+        irb> print "Today is " + today
+        Today is Saturday => nil
         ```
         You can store almost anything in a variable.
       </script>
@@ -627,8 +626,8 @@
 
         ```ruby
         # Remember, we've already set x = 5 and y = 4
-        irb(main):001:0> y = 10
-        irb(main):001:0> x * y
+        irb> y = 10
+        irb> x * y
         ```
 
         What do you think the value of `x * y` will be? <span class="delayed">50</span>
@@ -677,7 +676,7 @@
         Use the `gets` method to receive data typed into the console. Then you'll see a blank line and the cursor. Type your name in the blank line.
 
         ```ruby
-        irb(main):001:0> gets
+        irb> gets
         Sarah
         ```
         Ruby returns the name plus a `\n`. (We'll deal with the `\n` later.)
@@ -696,13 +695,13 @@
 
         ```ruby
         # Set variable 'name' to value of 'gets'
-        irb(main):001:0> name = gets
+        irb> name = gets
         ```
 
         Then add your name to the blank line.
         ```ruby
         # Set variable 'name' to value of 'gets'
-        irb(main):001:0> name = gets
+        irb> name = gets
         # Add a value for 'name'
         Sarah
         ```
@@ -710,7 +709,7 @@
         Now, *call* the variable using `name` and it will return the assigned value.
 
         ```ruby
-        irb(main):001:0> name
+        irb> name
         => "Sarah\n"
         ```
       </script>
@@ -727,7 +726,7 @@
 
         1.&nbsp;Give a `puts` message to let your user know what you&rsquo;re looking for.
         ```ruby
-        irb(main):001:0> puts "What is your name?"
+        irb> puts "What is your name?"
         ```
         ```ruby
         #outputs:
@@ -738,13 +737,13 @@
         2.&nbsp;Define a `name` variable and assign the value of `gets` to it.
         Add `chomp` to remove the new line character.
         ```ruby
-        irb(main):001:0> name = gets.chomp
+        irb> name = gets.chomp
         ```
 
         3.&nbsp;Type your name in the blank line and hit the **enter** key. The value will be  *returned* to you.
 
         ```
-        irb(main):001:0> name = gets.chomp
+        irb> name = gets.chomp
         Sarah
         => "Sarah"
         ```
@@ -752,7 +751,7 @@
         4.&nbsp;Type the variable `name` and **enter**.
 
         ```ruby
-        irb(main):001:0> name
+        irb> name
         => "Sarah"
         ```
 
@@ -941,14 +940,14 @@
         Reminder, one equals symbol only *assigns* a value to the variable.
 
         ```ruby
-        irb(main):001:0> weather = "raining"
+        irb> weather = "raining"
         ```
 
         To test the values, the double equals symbol (`==`) will evaluate if the value on the right matches the assigned value.
         ```
-        irb(main):001:0> weather == "cold"
+        irb> weather == "cold"
         => false
-        irb(main):001:0> weather == "raining"
+        irb> weather == "raining"
         => true
         ```
         We can use these *statements* with our `if` values to test the weather conditions.
@@ -1011,22 +1010,22 @@
         `<=`: Less than or equal to
 
         ```ruby
-        irb(main):001:0> x = 5
+        irb> x = 5
         => 5
-        irb(main):001:0> print x > 5
+        irb> print x > 5
         false => nil
-        irb(main):001:0> print x >= 5
+        irb> print x >= 5
         true => nil
         ```
 
         Here we're using the `to_s` function to turn "5" into a string for printing!
 
         ```ruby
-        irb(main):001:0> if x >= 5
-        ...     print x.to_s + " is greater than or equal to 5"
-        ... else
-        ...     print x.to_s + " is less than 5"
-        ... end
+        irb> if x >= 5
+        ...      print x.to_s + " is greater than or equal to 5"
+        ...  else
+        ...      print x.to_s + " is less than 5"
+        ...  end
         ...
         5 is greater than or equal to 5
         ```
@@ -1046,14 +1045,14 @@
         weather = "cold"
         snowing = true
 
-        irb(main):001:0> if weather == "cold" and snowing == true
-        ...     print "wear a winter jacket"
-        ...   end
+        irb> if weather == "cold" and snowing == true
+        ...      print "wear a winter jacket"
+        ...  end
 
         wear a winter jacket
-        irb(main):001:0> if weather == "raining" or snowing == true
-        ...     print "bring a change of socks"
-        ...   end
+        irb> if weather == "raining" or snowing == true
+        ...      print "bring a change of socks"
+        ...  end
         bring a change of socks
         ```
       </script>
@@ -1066,24 +1065,24 @@
         Take note! Whereas in math notation you can write `0 < x < 6`, in ruby you need to split these into separate comparisons
 
         ```ruby
-        irb(main):001:0> x = 5
-        irb(main):001:0> if x > 0 and x < 6
-        ...     print "x is between 0 and 6."
-        ...   end
+        irb> x = 5
+        irb> if x > 0 and x < 6
+        ...      print "x is between 0 and 6."
+        ...  end
         x is between 0 and 6.
         ```
 
         ```ruby
-        irb(main):001:0> if x.class == Float or x.class == Fixnum
-        ...     print "x is a numeric value"
-        ...   end
+        irb> if x.class == Float or x.class == Fixnum
+        ...      print "x is a numeric value"
+        ...  end
         x is a numeric value
         ```
 
         ```ruby
-        irb(main):001:0> if x > 10 and x < 0
-        ...     print "x could never be greater than 10 AND less than 0"
-        ...   end
+        irb> if x > 10 and x < 0
+        ...      print "x could never be greater than 10 AND less than 0"
+        ...  end
         # Nothing prints here
         ```
 
@@ -1135,10 +1134,10 @@
         We have a couple of `.csv` files from <a href=http://open.canada.ca>open.canada.ca</a> in the exercises folder. Let's try opening and reading the `no-emissions.csv` file.
 
         ```ruby
-        irb(main):001:0> emissions = File.open(".../llc-intro-to-ruby/exercises/no-emissions.csv")
-        irb(main):001:0> puts emissions.read()
+        irb> emissions = File.open(".../llc-intro-to-ruby/exercises/no-emissions.csv")
+        irb> puts emissions.read()
         # … lots of file data …
-        irb(main):001:0> emissions.close()
+        irb> emissions.close()
         # When you're done with a file it's a good idea to close it
         ```
       </script>
@@ -1155,20 +1154,20 @@
         Let&rsquo;s print out a few individual lines.
 
         ```ruby
-        irb(main):001:0> emissions = File.open('./exercises/no-emissions.csv')
-        irb(main):001:0> puts emissions.readline()
+        irb> emissions = File.open('./exercises/no-emissions.csv')
+        irb> puts emissions.readline()
         => "\"Nitrogen oxide emissions by country, 2002 and 2012\",,,,\r\n"
 
-        irb(main):001:0> puts emissions.readline()
+        irb> puts emissions.readline()
         => ",,,,\r\n"
 
-        irb(main):001:0> puts emissions.readline()
+        irb> puts emissions.readline()
         => "Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions... etc."
 
-        irb(main):001:0> puts emissions.readline()
+        irb> puts emissions.readline()
         => "United States,21632,12258,1.8,0.9\r\n"
 
-        irb(main):001:0> emissions.close()
+        irb> emissions.close()
         ```
       </script>
     </section>
@@ -1184,11 +1183,11 @@
         The example below uses a `for` loop to print each of the rows in the file.
 
         ```ruby
-        irb(main):001:0> emissions = File.open('./exercises/no-emissions.csv')
-        irb(main):002:0> for line in emissions
-        irb(main):003:1> puts line
-        irb(main):004:1> end
-        irb(main):001:0> emissions.close()
+        irb> emissions = File.open('./exercises/no-emissions.csv')
+        irb> for line in emissions
+        ...      puts line
+        ...  end
+        irb> emissions.close()
         ```
         ---
         ###Resource
@@ -1213,7 +1212,7 @@
       <script type="text/template">
         # Comma-Separated Values (CSV) Files
 
-        Let's take a closer look at the first four lines in the file `no-emissions.csv`:
+        Let's take a closer look at the first few lines in the file `no-emissions.csv`:
 
         ```
         1. "Nitrogen oxide emissions by country, 2002 and 2012",,,,
@@ -1231,6 +1230,59 @@
         ---
         <!-- .element: class="note" -->**Note**: This is a widely used file-format because it&rsquo;s such a simple representation of rows and columns of data. It doesn&rsquo;t matter whether you&rsquo;re on a Mac, Windows, Linux or even on a web app like Google Docs – everyone can use this data.
         </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Comma-Separated Values (CSV) Files
+
+        Let's take a closer look at the first few lines in the file `no-emissions.csv`:
+
+        ```
+        1. "Nitrogen oxide emissions by country, 2002 and 2012",,,,
+        2. ,,,,
+        3. Country,2002 Nitrogen oxide emissions (kilotonnes),2012 Nitrogen oxide emissions (kilotonnes),2002 Nitrogen oxide emissions intensity (tonnes per million US$ GDP),2012 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)
+        4. United States,21632,12258,1.8,0.9
+        5. Canada,2529,1862,2.4,1.4
+        6. Australia,1586,1707,2.4,2
+        ```
+
+        This is how the data would look like as a spreadsheet:
+
+        <table class="csv_table" style="">
+        <tr>
+            <td>Nitrogen oxide emissions by country, 2002 and 2012</td>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr>
+            <td>Country</td>
+            <td>2002 Nitrogen oxide emissions (kilotonnes)</td>
+            <td>2012 Nitrogen oxide emissions (kilotonnes)</td>
+            <td>2002 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)</td>
+            <td>2012 Nitrogen oxide emissions intensity (tonnes per million US$ GDP)</td>
+        </tr>
+        <tr> <td>United States</td> <td>21632</td> <td>12258</td> <td>1.8</td> <td>0.9</td> </tr>
+        <tr> <td>Canada</td> <td>2529</td> <td>1862</td> <td>2.4</td> <td>1.4</td> </tr>
+        <tr> <td>Australia</td> <td>1586</td> <td>1707</td> <td>2.4</td> <td>2</td> </tr>
+        </table>
+
+        <style>
+        .csv_table {
+            font-family: Andale Mono, Monaco, monospace;
+            font-size: 15px;
+            background: rgba(255, 255, 255, .5);
+            table-layout: fixed;
+            width:100%;
+        }
+        .csv_table td {
+            padding: 0.4em;
+            height: 2em;
+            vertical-align: top;
+        }
+        </style>
+
+      </script>
     </section>
 
     <section class="slide" data-markdown>
@@ -1256,7 +1308,7 @@
         In your console, import the `csv` library as follows.
 
         ```ruby
-        irb(main):001:0> require 'csv'
+        irb> require 'csv'
         ```
 <!-- TEMP: I don't think you can do this in IRB
         If you then type `csv.` and wait, it will show you a list of everything in that module.
@@ -1272,49 +1324,97 @@
       <script type="text/template">
         # Reading data from a CSV file
 
-        The CSV library has a number of different tools for extracting actual data from a CSV file. Instead of a line of comma-separated values, we can access individual values easily (like the cells of a spreadsheet).
+        The CSV library helps us access comma-separated-values using row and column numbers:
 
-        We can use `for` loops on CSV files!
+        * Import the `csv` library,
+        * Read the data from the file using the library (`CSV.read`),
+        * Access data by row and column (`data[row][column]`)
 
-        * First we require the `csv` library
-        * Then, we open the file
-        * Then read it!
+        ```ruby
+        irb> require 'csv'
+        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data[4][0]
+        => "Canada"
+        irb> data[4][1]
+        => "2529"
+        irb> data[4][2]
+        => "1862"
+        ```
 
+        <!-- .element: class="note" -->
         <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all functions available in CSV.
-
-        ```
-        irb(main):001:0> require 'csv'
-        irb(main):001:0> emissions_file = CSV.open('./exercises/no-emissions.csv')
-        irb(main):014:0> emissions_file.read
-        ```
-        ** Notice how the data is parsed according to the commas? This means we can read the data by column or by row!
-        <type 'dict'>
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # Working in a `foreach` loop
+        # Arrays
 
-        Before lunch, we learned how the `for` loops can repeat the same set of instructions on a collection of things - like our CSV rows.
+        The CSV library provides data using Arrays. Array is another fundamental data type that represents a sequence of items.
 
-        * `foreach` is a built in function in the CSV library that makes reading CSVs easier, it works just like a `for` loop
-        * The `foreach` loop assigns *each row* in turn to the `emissions` variable
-        * We group instructions together with the same indentation
-        * All the instructions in the indented block, are run for each `country`
+        CSV data is an Array of rows, and each row is an Array of Strings (the comma-separated values).
+
+        The position of an item in an Array is called an 'index', and the first item has index 0 (think distance from beginning).
+
 
         ```ruby
-        irb(main):001:0> require 'csv'
-        irb(main):041:0> CSV.foreach('./exercises/no-emissions.csv') do |row|
-        irb(main):042:1* puts row[0].to_s + " emitted " + row[1].to_s + " kilotonnes of nitrogen oxide in 2002."
-        irb(main):043:1> end
-        ...
-        United States emitted 21632 kilotonnes of nitrogen oxide in 2002.
-        Canada emitted 2529 kilotonnes of nitrogen oxide in 2002.
-        Australia emitted 1586 kilotonnes of nitrogen oxide in 2002.
-        Japan emitted 2151 kilotonnes of nitrogen oxide in 2002.
-        # ... Continues for the other countries
+        irb> require 'csv'
+        irb> data = CSV.read('./exercises/no-emissions.csv')
+        => [["Nitrogen oxide emissions by country, 2002 and 2012", nil, nil, nil, nil], [nil, nil, nil, nil, nil]...
+        irb> data.class
+        => Array
+        irb> data[4]
+        => ["Canada", "2529", "1862", "2.4", "1.4"]
+        irb> data[4].class
+        => Array
+        irb> data[4][0]
+        => "Canada"
+        irb> data[4][0].class
+        => String
         ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Array ranges
+
+        We can also select a range of items from an array by specifying the indices of the first and the last item:
+
+        ```ruby
+        irb> require 'csv'
+        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data[4..6]
+        => [["Canada", "2529", "1862", "2.4", "1.4"],
+            ["Australia", "1586", "1707", "2.4", "2"],
+            ["Japan", "2151", "1627", "0.6", "0.4"]]
+        irb> data[4][0..2]
+        => ["Canada", "2529", "1862"]
+        ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        # Looping over Arrays
+
+        We can loop over items in an Array. This means we can loop over selected rows in CSV data!
+
+
+        ```ruby
+        require 'csv'
+        data = CSV.read('./exercises/no-emissions.csv')
+        for row in data[3..35]
+            country = row[0]
+            emissions2002 = row[1]
+            if emissions2002 != nil
+              puts "In 2002 " + country + " emitted " + emissions2002 + " kilotonnes."
+            end
+        end
+        ```
+
+        Sometimes we need to work with messy data. Above, we selected only relevant rows (3 to 35), and avoided printing that pesky row that separates the two sets of countries.
+
       </script>
     </section>
 
@@ -1322,21 +1422,20 @@
       <script type="text/template">
         # Exercise 4: Find the difference between a country's 2002 emissions and their 2012 emissions (20 mins)
 
-        You already have the tools you need to find the countries in the `no-emissions.csv`.
-
         You'll find the file **ex4_emissions_comparison.rb** in the **exercises** folder filled with comments. Apply what we've learned so far, as suggested by the comments.
 
         ```ruby
         # Require the csv library
 
-        # Open the 'no-emissions.csv' with a foreach loop
+        # Read the file 'no-emissions.csv' using the library
 
-        # Loop through each of the rows
+        # Loop through the rows 3 to 35
 
-            # Compare the integer in the second (row[1]) with the integer in the third row (row[2])
+            # Go to next row if second column is empty
 
-                # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+            # Compare the integer in the second column (row[1]) with the integer in the third column (row[2])
 
+            # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
         ```
       </script>
     </section>
@@ -1350,12 +1449,12 @@
         We can add `1` to the current value of a variable, and assign it back to the same variable. Ruby processes everything to the right of the equals symbol (`=`) before assigning the result.
 
         ```ruby
-        irb(main):001:0> count = 0
-        irb(main):001:0> count = count + 1
-        irb(main):001:0> print count
-        1
+        irb> count = 0
+        irb> count = count + 1
+        irb> print count
+        => 1
         ```
-        We can count the number of countries in **no-emissions.csv** if we increase by one each time it loops.
+        We can count the number of countries in **no-emissions.csv** if we increase by one for each row we loop over.
 
         ```ruby
         # file: exercises/demo_loop_count.rb
@@ -1363,12 +1462,14 @@
 
         count = 0
 
-        CSV.foreach("no-emissions.csv") do |row|
-          count += 1
+        for row in CSV.read("no-emissions.csv")
+            # Ignore irrelevant rows
+            if row[1].to_i > 0
+              count += 1
+            end
         end
 
         puts "There are " + count.to_s + " countries in the survey."
-
         ```
       </script>
     </section>
@@ -1383,7 +1484,7 @@
         Ruby has an `.include?()` method available on `string` types that tells you if another string appears – it returns a **boolean**.
 
         ```ruby
-        irb(main):001:0> "Ladies Learning Code".include?("Code")
+        irb> "Ladies Learning Code".include?("Code")
         => true
         ```
 
@@ -1439,13 +1540,13 @@
       <script type="text/template">
         # Final Exercise
 
-        Out of curiousity we are going to take a look at historical rent prices using data from [open.canada.ca.](http://open.canada.ca/)
+        Out of curiousity we are going to take a look at historical rent prices using data from [open.canada.ca.](http://open.canada.ca/).
 
-        * Filter the data for rows that have a number in the "Value" column.
-        * Find the average of "One bedroom units" in a province of your choice.
-        * Find the difference in pricing for "One bedroom units" in the 1980s versus the 1990s in that area.
+        Open **final_exercise.rb** and complete the exercise:
 
-        **Bonus Exercise**: Use **selection sort** on your list!
+        * Complete a function that computes the **average rent** in a chosen **decade** for a chosen province and rental unit type.
+        * Find the **difference** between the average rent in the **1980s** and in the **1990s**.
+        *  **Bonus Exercise**: Use **selection sort** to sort a list of provinces from the highest to the lowest average rent.
 
         ![Nicki - Work it](http://33.media.tumblr.com/50d6e9b731ca0e739a04ed9255df3228/tumblr_mmjqcuNB9b1ql5yr7o1_500.gif)
       </script>
