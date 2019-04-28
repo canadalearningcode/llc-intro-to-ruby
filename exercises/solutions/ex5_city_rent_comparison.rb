@@ -11,7 +11,7 @@ highest_rent_city_name = ""
 # Loop through each of the rows
 for row in data
     # If this row is for a city of interest
-    if ((row.include? "Edmonton, Alberta" or row.include? "Toronto, Ontario") and row.include? "2008")
+    if ((row.include?("Edmonton, Alberta") || row.include?( "Toronto, Ontario")) && row.include?("2008"))
         # Print the row
         puts row.to_s + "\n"
         # If the rent is the highest so far

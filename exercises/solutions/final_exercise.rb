@@ -15,6 +15,12 @@ April 9 2019
 Jakob Leben - jakob.leben@gmail.com
 
 Adapted to use only the Ruby features presented on the slides.
+
+---
+April 27 2019
+Susan Wright - wright1@ualberta.ca
+
+Altered to use the '&&' and '||' syntax instead of 'and' and 'or'
 =end
 
 require 'csv'
@@ -38,7 +44,7 @@ def average_rent(data, selected_type, selected_province, decade)
         type = row[4]
         rent = row[7].to_i
 
-        if type == selected_type and location.include? selected_province and year >= decade and year < decade + 10
+        if type == selected_type && location.include?(selected_province) && year >= decade && year < decade + 10
             count += 1
             rent_sum += rent
         end
