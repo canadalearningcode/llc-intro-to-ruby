@@ -52,7 +52,7 @@ for row in data
     # Get the price of rent from the row and convert it to an number
     rent = row[7].to_i
 
-    # Add the rent to the rent sum ONLY when the type in the row is selected
+    # Add the rent to the rent sum ONLY when the type in the row is the selected
     # type AND when the location contains the province AND when the year is
     # between 1980 and 1989, inclusive.
     if type == selected_type && location.include?(selected_province) && year >= 1980 && year <= 1989
@@ -92,7 +92,7 @@ for row in data
     # Get the price of rent from the row and convert it to an number
     rent = row[7].to_i
 
-    # Add the rent to the rent sum ONLY when the type in the row is selected
+    # Add the rent to the rent sum ONLY when the type in the row is the selected
     # type AND when the location contains the province AND when the year is
     # between 1990 and 1999, inclusive.
     if type == selected_type && location.include?(selected_province) && year >= 1990 && year <= 1999
