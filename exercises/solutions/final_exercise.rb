@@ -40,6 +40,7 @@ selected_type = "One bedroom units"
 #     - selected_province: Province of interest (for example "Alberta")
 selected_province = "Alberta"
 
+# === PART A ===
 # Calculate the average rent for the desired province and rental unit type in the 80s.
 
 # Keep a count of the number of rental units.
@@ -63,6 +64,7 @@ for row in data
     # between 1980 and 1989, inclusive.
     if type == selected_type && location.include?(selected_province) && year >= 1980 && year <= 1989
         count += 1
+
         rent_sum += rent
     end
 end
@@ -78,7 +80,7 @@ end
 # Print this value.
 puts "Average rent for " + selected_type + " in " + selected_province + " in the 80s was $" + rent_80s.to_s
 
-
+# === PART B ===
 # Do the same for the 90s. To reiterate:
 # Calculate the average rent for the desired province and rental unit type in the 90s.
 
@@ -103,6 +105,7 @@ for row in data
     # between 1990 and 1999, inclusive.
     if type == selected_type && location.include?(selected_province) && year >= 1990 && year <= 1999
         count += 1
+
         rent_sum += rent
     end
 end
@@ -118,10 +121,8 @@ end
 # Print this value.
 puts "Average rent for " + selected_type + " in " + selected_province + " in the 90s was $" + rent_90s.to_s
 
-
 # Calculate and print the difference between the average rent in the 90s and in the 80s.
 puts "Difference is: $" + (rent_90s - rent_80s).to_s
-
 
 =begin
 # Selection sort (very slow on large lists)
