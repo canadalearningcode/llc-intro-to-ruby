@@ -1,7 +1,7 @@
-require 'csv'
+require "csv"
 
 
-# Read data from the CSV file 'rent-data.csv'
+# Read data from the CSV file "rent-data.csv"
 
 # Pick a province and a rental unit type (take a look at the CSV file for examples)
 #     - selected_type: Type of rental unit of interest (for example "One bedroom units")

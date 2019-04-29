@@ -29,9 +29,9 @@ Eddie Antonio Santos - Eddie.Santos@nrc-cnrc.gc.ca
 Further adapted to no longer use functions.
 =end
 
-require 'csv'
+require "csv"
 
-# Read data from the CSV file 'rent-data.csv'
+# Read data from the CSV file "rent-data.csv"
 data = CSV.read("exercises/rent-data.csv")
 
 # Pick a province and a rental unit type (take a look at the CSV file for examples)

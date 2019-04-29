@@ -1,8 +1,8 @@
 # Require the csv library
-require 'csv'
+require "csv"
 
-# Read the file 'no-emissions.csv' using the library
-data = CSV.read('rent-data.csv')
+# Read the file "no-emissions.csv" using the library
+data = CSV.read("rent-data.csv")
 
 # Variables tracking the city with the highest rent seen so far in the loop
 highest_rent = 0

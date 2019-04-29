@@ -1251,7 +1251,7 @@
         In your console, import the `csv` library as follows.
 
         ```ruby
-        irb> require 'csv'
+        irb> require "csv"
         ```
 <!-- TEMP: I don't think you can do this in IRB
         If you then type `csv.` and wait, it will show you a list of everything in that module.
@@ -1274,7 +1274,7 @@
         * Access data by row and column (`data[row][column]`)
 
         ```ruby
-        irb> require 'csv'
+        irb> require "csv"
         irb> data = CSV.read('./exercises/no-emissions.csv')
         irb> data[4][0]
         => "Canada"
@@ -1301,7 +1301,7 @@
 
 
         ```ruby
-        irb> require 'csv'
+        irb> require "csv"
         irb> data = CSV.read('./exercises/no-emissions.csv')
         => [["Nitrogen oxide emissions by country, 2002 and 2012", nil, nil, nil, nil], [nil, nil, nil, nil, nil]...
         irb> data.class
@@ -1325,7 +1325,7 @@
         We can also select a range of items from an array by specifying the indices of the first and the last item:
 
         ```ruby
-        irb> require 'csv'
+        irb> require "csv"
         irb> data = CSV.read('./exercises/no-emissions.csv')
         irb> data[4..6]
         => [["Canada", "2529", "1862", "2.4", "1.4"],
@@ -1345,7 +1345,7 @@
 
 
         ```ruby
-        require 'csv'
+        require "csv"
         data = CSV.read('./exercises/no-emissions.csv')
         for row in data[3..35]
             country = row[0]
@@ -1401,7 +1401,7 @@
 
         ```ruby
         # file: exercises/demo_loop_count.rb
-        require 'csv'
+        require "csv"
 
         count = 0
 
