@@ -1,4 +1,3 @@
-
 puts "What is the weather? (cold, raining, etc.): "
 # chomp removed the enter at the end of a line "chomps" off the /n or ENTER key input
 weather = gets.chomp.to_i
