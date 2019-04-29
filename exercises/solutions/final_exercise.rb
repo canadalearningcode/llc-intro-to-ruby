@@ -1,33 +1,31 @@
-=begin
-Ladies Learning Code
-July 16 2015
-Sarah Beck - essefbeck@gmail.com
-
-This is a super simple program to show me the rent costs of all apartments in Toronto
-between 1980 and 1990. The CSV is originally read in as all strings so some conversion magic needs
-to happen for the values. The header is:
-Ref_Date, GEO, Geographical classification, STRUCTURE, UNIT, Vector, Coordinate,Value
-and full dataset (11MB) can be downloaded here: (You will have to rename it)
-http://open.canada.ca/data/en/dataset/1146388b-a150-4e70-98ec-eb40cb9083c8
-
----
-April 9 2019
-Jakob Leben - jakob.leben@gmail.com
-
-Adapted to use only the Ruby features presented on the slides.
-
----
-April 27 2019
-Susan Wright - wright1@ualberta.ca
-
-Altered to use the '&&' and '||' syntax instead of 'and' and 'or'
-
----
-April 28 2019
-Eddie Antonio Santos - Eddie.Santos@nrc-cnrc.gc.ca
-
-Further adapted to no longer use functions.
-=end
+# Ladies Learning Code
+# July 16 2015
+# Sarah Beck - essefbeck@gmail.com
+#
+# This is a super simple program to show me the rent costs of all apartments in Toronto
+# between 1980 and 1990. The CSV is originally read in as all strings so some conversion magic needs
+# to happen for the values. The header is:
+# Ref_Date, GEO, Geographical classification, STRUCTURE, UNIT, Vector, Coordinate,Value
+# and full dataset (11MB) can be downloaded here: (You will have to rename it)
+# http://open.canada.ca/data/en/dataset/1146388b-a150-4e70-98ec-eb40cb9083c8
+#
+# ---
+# April 9 2019
+# Jakob Leben - jakob.leben@gmail.com
+#
+# Adapted to use only the Ruby features presented on the slides.
+#
+# ---
+# April 27 2019
+# Susan Wright - wright1@ualberta.ca
+#
+# Altered to use the '&&' and '||' syntax instead of 'and' and 'or'
+#
+# ---
+# April 28 2019
+# Eddie Antonio Santos - Eddie.Santos@nrc-cnrc.gc.ca
+#
+# Further adapted to no longer use functions.
 
 require "csv"
 
@@ -124,18 +122,16 @@ puts "Average rent for " + selected_type + " in " + selected_province + " in the
 # Calculate and print the difference between the average rent in the 90s and in the 80s.
 puts "Difference is: $" + (rent_90s - rent_80s).to_s
 
-=begin
-# Selection sort (very slow on large lists)
-list = CSV.open()
-size_of_list = a.size - 1
-
-size_of_list.times do |item|
-  index_min = item
-
-  (item + 1).upto(size_of_list) do |j|
-    index_min = j if a[j] < a[index_min]
-  end
-  list[i], list[index_min] = list[index_min], list[i] if index_min != item
-end
-
-=end
+# # Selection sort (very slow on large lists)
+# list = CSV.open()
+# size_of_list = a.size - 1
+#
+# size_of_list.times do |item|
+#   index_min = item
+#
+#   (item + 1).upto(size_of_list) do |j|
+#     index_min = j if a[j] < a[index_min]
+#   end
+#   list[i], list[index_min] = list[index_min], list[i] if index_min != item
+# end
+#
