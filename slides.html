@@ -1034,23 +1034,23 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # And / Or
+        # && / ||
 
         Sometimes, you can&rsquo;t neatly capture your conditions with one expression. You need to combine multiple expressions to determine what to do next.
 
-        `and`: both things must be true  
-        `or`: either one, or both things must be true
+        `&&`: both things must be true  
+        `||`: either one, or both things must be true
 
         ```ruby
         weather = "cold"
         snowing = true
 
-        irb> if weather == "cold" and snowing == true
+        irb> if weather == "cold" && snowing == true
         ...      print "wear a winter jacket"
         ...  end
 
         wear a winter jacket
-        irb> if weather == "raining" or snowing == true
+        irb> if weather == "raining" || snowing == true
         ...      print "bring a change of socks"
         ...  end
         bring a change of socks
@@ -1060,27 +1060,27 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # Examples with and/or
+        # Examples with &&/||
 
         Take note! Whereas in math notation you can write `0 < x < 6`, in ruby you need to split these into separate comparisons
 
         ```ruby
         irb> x = 5
-        irb> if x > 0 and x < 6
+        irb> if x > 0 && x < 6
         ...      print "x is between 0 and 6."
         ...  end
         x is between 0 and 6.
         ```
 
         ```ruby
-        irb> if x.class == Float or x.class == Fixnum
+        irb> if x.class == Float || x.class == Fixnum
         ...      print "x is a numeric value"
         ...  end
         x is a numeric value
         ```
 
         ```ruby
-        irb> if x > 10 and x < 0
+        irb> if x > 10 && x < 0
         ...      print "x could never be greater than 10 AND less than 0"
         ...  end
         # Nothing prints here
@@ -1097,7 +1097,7 @@
 
         Instead of telling your program if it&rsquo;s cold, you can input the temperature and let it decide what to do.
 
-        Open **smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `and`/`or` to complete the exercise.
+        Open **smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `&&`/`||` to complete the exercise.
 
         ```ruby
         # if the weather is greater than or equal to 25 degrees
