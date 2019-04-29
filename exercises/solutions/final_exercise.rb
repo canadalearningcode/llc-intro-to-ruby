@@ -21,52 +21,107 @@ April 27 2019
 Susan Wright - wright1@ualberta.ca
 
 Altered to use the '&&' and '||' syntax instead of 'and' and 'or'
+
+---
+April 28 2019
+Eddie Antonio Santos - Eddie.Santos@nrc-cnrc.gc.ca
+
+Further adapted to no longer use functions.
 =end
 
 require 'csv'
 
-# Function 'average_rent':
-#     Find average rent for a specific type of rental units
-#     in a specific province and in a specific decade.
-# Arguments:
-#     - data: CSV data returned by CSV.read
+# Read data from the CSV file 'rent-data.csv'
+data = CSV.read("exercises/rent-data.csv")
+
+# Pick a province and a rental unit type (take a look at the CSV file for examples)
 #     - selected_type: Type of rental unit of interest (for example "One bedroom units")
+selected_type = "One bedroom units"
 #     - selected_province: Province of interest (for example "Alberta")
-#     - decade: First year in the decade of interest (for example 1980)
+selected_province = "Alberta"
 
-def average_rent(data, selected_type, selected_province, decade)
-    count = 0
-    rent_sum = 0
+# Calculate the average rent for the desired province and rental unit type in the 80s.
 
-    for row in data
-        year = row[0].to_i
-        location = row[1]
-        type = row[4]
-        rent = row[7].to_i
+# Keep a count of the number of rental units.
+count = 0
+# Keep a sum of all of the rents
+rent_sum = 0
 
-        if type == selected_type && location.include?(selected_province) && year >= decade && year < decade + 10
-            count += 1
-            rent_sum += rent
-        end
-    end
+# For each row in the CSV file...
+for row in data
+    # Get the year from the row and convert it to an integer
+    year = row[0].to_i
+    # Get the location from the row
+    location = row[1]
+    # Get the rental unit type from the row
+    type = row[4]
+    # Get the price of rent from the row and convert it to an number
+    rent = row[7].to_i
 
-    if count == 0
-        return 0
-    else
-        return rent_sum / count
+    # Add the rent to the rent sum ONLY when the type in the row is the selected
+    # type AND when the location contains the province AND when the year is
+    # between 1980 and 1989, inclusive.
+    if type == selected_type && location.include?(selected_province) && year >= 1980 && year <= 1989
+        count += 1
+        rent_sum += rent
     end
 end
 
-type = "One bedroom units"
-province = "Alberta"
+# Average rent is sum of all the rents divided by how many units we've
+# counted. Make sure to avoid dividing by zero: then the average is 0!
+if count == 0
+    rent_80s = 0
+else
+    rent_80s = rent_sum / count
+end
 
-data = CSV.read('exercises/rent-data.csv')
-rent_80s = average_rent(data, type, province, 1980)
-rent_90s = average_rent(data, type, province, 1990)
+# Print this value.
+puts "Average rent for " + selected_type + " in " + selected_province + " in the 80s was $" + rent_80s.to_s
 
-puts "Average rent for " + type + " in " + province + " in the 80s was $" + rent_80s.to_s
-puts "Average rent for " + type + " in " + province + " in the 90s was $" + rent_90s.to_s
+
+# Do the same for the 90s. To reiterate:
+# Calculate the average rent for the desired province and rental unit type in the 90s.
+
+# Keep a count of the number of rental units.
+count = 0
+# Keep a sum of all of the rents
+rent_sum = 0
+
+# For each row in the CSV file...
+for row in data
+    # Get the year from the row and convert it to an integer
+    year = row[0].to_i
+    # Get the location from the row
+    location = row[1]
+    # Get the rental unit type from the row
+    type = row[4]
+    # Get the price of rent from the row and convert it to an number
+    rent = row[7].to_i
+
+    # Add the rent to the rent sum ONLY when the type in the row is the selected
+    # type AND when the location contains the province AND when the year is
+    # between 1990 and 1999, inclusive.
+    if type == selected_type && location.include?(selected_province) && year >= 1990 && year <= 1999
+        count += 1
+        rent_sum += rent
+    end
+end
+
+# Average rent is sum of all the rents divided by how many units we've
+# counted. Make sure to avoid dividing by zero: then the average is 0!
+if count == 0
+    rent_90s = 0
+else
+    rent_90s = rent_sum / count
+end
+
+# Print this value.
+puts "Average rent for " + selected_type + " in " + selected_province + " in the 90s was $" + rent_90s.to_s
+
+
+# Calculate and print the difference between the average rent in the 90s and in the 80s.
 puts "Difference is: $" + (rent_90s - rent_80s).to_s
+
 
 =begin
 # Selection sort (very slow on large lists)
@@ -79,7 +134,7 @@ size_of_list.times do |item|
   (item + 1).upto(size_of_list) do |j|
     index_min = j if a[j] < a[index_min]
   end
-    list[i], list[index_min] = list[index_min], list[i] if index_min != item
+  list[i], list[index_min] = list[index_min], list[i] if index_min != item
 end
 
 =end
