@@ -75,7 +75,7 @@ else
     rent_80s = rent_sum / count
 end
 
-# Print this value.
+# Use puts to display this value
 puts "Average rent for " + selected_type + " in " + selected_province + " in the 80s was $" + rent_80s.to_s
 
 # === PART B ===
@@ -116,11 +116,14 @@ else
     rent_90s = rent_sum / count
 end
 
-# Print this value.
+# Use puts to display this value
 puts "Average rent for " + selected_type + " in " + selected_province + " in the 90s was $" + rent_90s.to_s
 
-# Calculate and print the difference between the average rent in the 90s and in the 80s.
-puts "Difference is: $" + (rent_90s - rent_80s).to_s
+# Calculate the difference between the average rent in the 90s and in the 80s.
+avg_rent_diff = rent_90s - rent_80s
+
+# Use puts to display that difference
+puts "Difference is: $" + avg_rent_diff.to_s
 
 # # Selection sort (very slow on large lists)
 # list = CSV.open()

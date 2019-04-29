@@ -8,7 +8,7 @@ require "csv"
 
 #     - selected_province: Province of interest (for example "Alberta")
 
-
+# === PART A ===
 # Calculate the average rent for the desired province and rental unit type in the 80s.
 
 # Keep a count of the number of rental units.
@@ -34,10 +34,9 @@ require "csv"
 # Average rent is sum of all the rents divided by how many units we've
 # counted. Make sure to avoid dividing by zero: then the average is 0!
 
-# Print this value.
+# Use puts to display this value
 
-
-
+# === PART B ===
 # Do the same for the 90s. To reiterate:
 # Calculate the average rent for the desired province and rental unit type in the 90s.
 
@@ -64,6 +63,8 @@ require "csv"
 # Average rent is sum of all the rents divided by how many units we've
 # counted. Make sure to avoid dividing by zero: then the average is 0!
 
-# Print this value.
+# Use puts to display this value
 
-# Calculate and print the difference between the average rent in the 90s and in the 80s.
+# Calculate the difference between the average rent in the 90s and in the 80s.
+
+# Use puts to display that difference

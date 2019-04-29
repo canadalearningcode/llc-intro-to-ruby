@@ -9,4 +9,4 @@ require "csv"
 
     # Compare the integer in the second column (row[1]) with the integer in the third column (row[2])
 
-    # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+    # Use puts to display "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"

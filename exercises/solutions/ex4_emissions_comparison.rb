@@ -18,6 +18,6 @@ for row in data[3..35]
     # Compare the integer in the second column (row[1]) with the integer in the third column (row[2])
     difference = emissions2012 - emissions2002 # Here I am hoping they decreased!
 
-    # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+    # Use puts to display "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
     puts "The difference in emissions from 2002 to 2012 for " + country + " is " + difference.to_s + " kilotonnes!"
 end

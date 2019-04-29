@@ -13,8 +13,8 @@ highest_rent_city_name = ""
 for row in data
     # If this row is for a city of interest
     if (row.include?("Edmonton, Alberta") || row.include?("Toronto, Ontario")) && row.include?("2008")
-        # Print the row
-        puts row.to_s + "\n"
+        # Use puts to display the row
+        puts row.to_s
 
         # If the rent is the highest so far
         if row[7].to_i > highest_rent
@@ -26,5 +26,5 @@ for row in data
     end
 end
 
-# Print the highest rent and the city it was found in
+# Use puts to display the highest rent and the city it was found in
 puts "The city with the highest rent is: " + highest_rent_city_name + " at " + highest_rent.to_s + " per month."
