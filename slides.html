@@ -342,7 +342,7 @@
       <script type="text/template">
         #Outputting values: `puts`
 
-        The `puts` **function** outputs values to the screen.
+        The `puts` **method** outputs values to the screen.
 
         You can think of `puts` as short for:
 
@@ -392,9 +392,9 @@
       <script type="text/template">
         #What's nil? It's nothing, don't worry.
 
-        Every **function** returns a value.
+        Every **method** returns a value.
 
-        Well, `puts` and `print` are functions.  However, since they only print to the screen they *technically* don't return anything.
+        Well, `puts` and `print` are methods.  However, since they only print to the screen they *technically* don't return anything.
 
         Since Ruby always needs to return something, it returns `nil`, which is computer for **nothing**.
 
@@ -407,9 +407,9 @@
       <script type="text/template">
         #Concatenation
 
-        Ruby comes with a whole set of predefined functions.  These are sets of code that are so regularly used by most programmers that it makes sense for them to be part of the programming language itself.
+        Ruby comes with a whole set of predefined methods.  These are sets of code that are so regularly used by most programmers that it makes sense for them to be part of the programming language itself.
 
-        One such function is **concatenation**. With this we can "add" strings together. We call this function using the `+` symbol.
+        One such method is **concatenation**. With this we can "add" strings together. We call this method using the `+` symbol.
 
         ```
         irb> puts "Ladies " + "Learning " + "Code"
@@ -455,14 +455,14 @@
 
         Ruby can convert the string `"2"` into a number and *change the type*.
 
-        To change the string to an integer (whole number) using the `.to_i` function.  Try it in your console.
+        To change the string to an integer (whole number) using the `.to_i` method.  Try it in your console.
 
         ```
         irb> puts 2 + "2".to_i
         4
         => nil
         ```
-        `to_i` is another predefined function in Ruby.
+        `to_i` is another predefined method in Ruby.
         It converts a string to an integer.
       </script>
     </section>
@@ -471,9 +471,9 @@
       <script type="text/template">
         #Dot Notation
 
-        The most common way we call functions is with **dot notation**.
+        The most common way we call methods is with **dot notation**.
 
-        In other words, add a period, then the function name *after* the object you want to call it on.
+        In other words, add a period, then the method name *after* the object you want to call it on.
 
         For example:
 
@@ -496,7 +496,7 @@
         ```
         This happens because Ruby sees 2 integers and will return an integer. Integer **classes** don&rsquo;t have decimal parts, so it must be converted to **floats**, since this number **class** can handle decimals.
 
-        Use dot notation and the `.to_f` function.
+        Use dot notation and the `.to_f` method.
         ```
         irb> puts 1.to_f / 2.to_f
         0.5
@@ -517,7 +517,7 @@
         TypeError: String cant be coerced into Fixnum
 
         ```
-        Use the `.to_s` function to convert a number to a string.
+        Use the `.to_s` method to convert a number to a string.
 
         ```
         irb> puts 3.to_s + " items in my bento!"
@@ -966,7 +966,7 @@
         => nil
         ```
 
-        Here we're using the `to_s` function to turn "5" into a string for output!
+        Here we're using the `to_s` method to turn "5" into a string for output!
 
         ```ruby
         irb> if x >= 5
@@ -1251,7 +1251,7 @@
 
         So far, we've been writing all our code in the console or in one file. When you use a library, you don't want to copy all that code into your file, otherwise it would become huge!
 
-        In Ruby, you can **require** the functions and other structures so you can use the code without having it in your file. Then you can use functions (and other structures) to do your bidding!
+        In Ruby, you can **require** the methods and other structures so you can use the code without having it in your file. Then you can use methods (and other structures) to do your bidding!
 
         In your console, import the `csv` library as follows.
 
@@ -1290,7 +1290,7 @@
         ```
 
         <!-- .element: class="note" -->
-        <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all functions available in CSV.
+        <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all methods available in CSV.
       </script>
     </section>
 
@@ -1440,7 +1440,7 @@
         => true
         ```
 
-        The `.include?()` function is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
+        The `.include?()` method is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
 
         *<!-- .element: class="note" --> When we said computers require **exact** instructions, we meant it!*
       </script>
