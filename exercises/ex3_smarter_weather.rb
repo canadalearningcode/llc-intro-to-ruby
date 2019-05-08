@@ -1,6 +1,5 @@
-# Ask the user for input on the weather!
-
-# Use chomp to get the user input
+# Ask the user to input the temperature as a number
+# Use gets to read the user input, and use chomp to remove the newline
 
 # Instead of telling your program if it's cold,
 # you can input the temperature and let it decide what to do.
