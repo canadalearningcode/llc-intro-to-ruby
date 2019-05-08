@@ -10,7 +10,7 @@ highest_rent = 0
 highest_rent_city_name = ""
 
 # Loop through each of the rows
-for row in data
+data.each do |row|
     # If this row is for a city of interest
     if (row.include?("Edmonton, Alberta") || row.include?("Toronto, Ontario")) && row.include?("2008")
         # Use puts to display the row

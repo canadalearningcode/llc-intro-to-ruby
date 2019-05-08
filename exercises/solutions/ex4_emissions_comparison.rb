@@ -4,14 +4,18 @@ require "csv"
 # Read the file "no-emissions.csv" using the library
 data = CSV.read("./no-emissions.csv")
 
-# Loop through the rows 3 to 35
-for row in data[3..35]
+# restrict to rows 3 to 35
+data = data[3..35]
+
+# Loop through the rows
+data.each do |row|
     # Go to next row if second column is empty
     if row[1] == nil
         next
     end
 
     country = row[0].to_s
+
     emissions2002 = row[1].to_i
     emissions2012 = row[2].to_i
 

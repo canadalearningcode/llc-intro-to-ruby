@@ -1131,8 +1131,8 @@
         The example below uses a `for` loop to output each of the rows in the file.
 
         ```ruby
-        irb> emissions = File.open('./exercises/no-emissions.csv')
-        irb> for line in emissions
+        irb> emissions = File.open("./exercises/no-emissions.csv")
+        irb> emissions.each do |line|
         ...      puts line
         ...  end
         irb> emissions.close()
@@ -1351,8 +1351,9 @@
 
         ```ruby
         require "csv"
-        data = CSV.read('./exercises/no-emissions.csv')
-        for row in data[3..35]
+        data = CSV.read("./exercises/no-emissions.csv")
+        data = data[3..35]
+        data.each do |row|
             country = row[0]
             emissions2002 = row[1]
             if emissions2002 != nil
@@ -1411,7 +1412,9 @@
 
         count = 0
 
-        for row in CSV.read("no-emissions.csv")
+        data = CSV.read("no-emissions.csv")
+
+        data.each do |row|
             # Ignore irrelevant rows
             if row[1].to_i > 0
               count += 1

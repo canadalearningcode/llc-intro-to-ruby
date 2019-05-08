@@ -47,7 +47,7 @@ count = 0
 rent_sum = 0
 
 # For each row in the CSV file...
-for row in data
+data.each do |row|
     # Get the year from the row and convert it to an integer
     year = row[0].to_i
     # Get the location from the row
@@ -88,7 +88,7 @@ count = 0
 rent_sum = 0
 
 # For each row in the CSV file...
-for row in data
+data.each do |row|
     # Get the year from the row and convert it to an integer
     year = row[0].to_i
     # Get the location from the row
