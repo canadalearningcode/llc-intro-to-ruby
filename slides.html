@@ -1102,7 +1102,7 @@
         Let&rsquo;s output a few individual lines.
 
         ```ruby
-        irb> emissions = File.open('./exercises/no-emissions.csv')
+        irb> emissions = File.open("./exercises/no-emissions.csv")
         irb> puts emissions.readline()
         => "\"Nitrogen oxide emissions by country, 2002 and 2012\",,,,\r\n"
 
@@ -1280,7 +1280,7 @@
 
         ```ruby
         irb> require "csv"
-        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data = CSV.read("./exercises/no-emissions.csv")
         irb> data[4][0]
         => "Canada"
         irb> data[4][1]
@@ -1307,7 +1307,7 @@
 
         ```ruby
         irb> require "csv"
-        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data = CSV.read("./exercises/no-emissions.csv")
         => [["Nitrogen oxide emissions by country, 2002 and 2012", nil, nil, nil, nil], [nil, nil, nil, nil, nil]...
         irb> data.class
         => Array
@@ -1331,7 +1331,7 @@
 
         ```ruby
         irb> require "csv"
-        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> data = CSV.read("./exercises/no-emissions.csv")
         irb> data[4..6]
         => [["Canada", "2529", "1862", "2.4", "1.4"],
             ["Australia", "1586", "1707", "2.4", "2"],
