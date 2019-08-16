@@ -1,8 +1,10 @@
-require 'csv'
+require "csv"
 
 count = 0
 
-for row in CSV.read("no-emissions.csv")
+data = CSV.read("no-emissions.csv")
+
+data.each do |row|
     # Ignore irrelevant rows
     if row[1].to_i > 0
         count += 1

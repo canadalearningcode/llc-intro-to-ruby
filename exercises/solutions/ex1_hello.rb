@@ -1,5 +1,5 @@
 # Ask user for input
-print "Please enter your name: "
+puts "Please enter your name:"
 
 # Assign the input value to a variable
 # Your program waits for the user to hit enter

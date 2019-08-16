@@ -96,7 +96,7 @@
     <section class="slide" data-markdown>
       <script type="text/template">
       #Agenda
-      
+
       <div class="col-2">
         <h2>Part 1</h2>
         <ul>
@@ -107,7 +107,7 @@
             <li>For loops</li>
         </ul>
       </div>
-      
+
       <div class="col-2">
         <h2>Part 2</h2>
         <ul>
@@ -342,9 +342,13 @@
       <script type="text/template">
         #Outputting values: `puts`
 
-        The `puts` **function** outputs values to the screen.
+        The `puts` **method** outputs values to the screen.
 
-        Reminder, use of quotes for *string* data types.
+        You can think of `puts` as short for:
+
+        > <u>put s</u>tring onto screen
+
+        Remember, use quotes for *string* data types.
 
         ```
         irb> puts "Hello World!"
@@ -362,31 +366,23 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Outputting values: `print`
-
-        The function `print` can also be used to output values.
-
-        The difference between `puts` and `print` is `puts` adds a new line to end of the output and `print` does not.
-
-        ```
-        irb> puts 2 + 2
-        4
-        => nil
-        ```
-        ```
-        irb> print 2 + 2
-        4=> nil
-        ```
-        Notice the `nil` remains on the same line as the response?
+        #Outputting values: `puts`
 
         Let's try it in IRB!
         ```
-        irb> print "Hello World!"
-        Hello World!=> nil
+        irb> puts "Ruby is fun."
+        Ruby is fun.
+        => nil
         ```
         ```
-        irb> print 2 + 2
-        4=> nil
+        irb> puts "I like to say things!"
+        I like to say things
+        => nil
+        ```
+        ```
+        irb> puts 36 * 12
+        432
+        => nil
         ```
 
       </script>
@@ -396,9 +392,9 @@
       <script type="text/template">
         #What's nil? It's nothing, don't worry.
 
-        Every **function** returns a value.
+        Every **method** returns a value.
 
-        Well, `print` and `puts` are functions.  However, since they only print to the screen they *technically* don't return anything.
+        Well, `puts` and `print` are methods.  However, since they only print to the screen they *technically* don't return anything.
 
         Since Ruby always needs to return something, it returns `nil`, which is computer for **nothing**.
 
@@ -411,19 +407,20 @@
       <script type="text/template">
         #Concatenation
 
-        Ruby comes with a whole set of predefined functions.  These are sets of code that are so regularly used by most programmers that it makes sense for them to be part of the programming language itself.
+        Ruby comes with a whole set of predefined methods.  These are sets of code that are so regularly used by most programmers that it makes sense for them to be part of the programming language itself.
 
-        One such function is **concatenation**. With this we can "add" strings together. We call this function using the `+` symbol.
+        One such method is **concatenation**. With this we can "add" strings together. We call this method using the `+` symbol.
 
         ```
-        irb> print "Ladies " + "Learning " + "Code"
-        Ladies Learning Code => nil
+        irb> puts "Ladies " + "Learning " + "Code"
+        Ladies Learning Code
+        => nil
         ```
 
         But what if we try to join a string and a number?
 
         ```ruby
-        irb> print 2 + "2"
+        irb> puts 2 + "2"
         TypeError: String cannot be coerced into Fixnum
 
         ```
@@ -437,11 +434,11 @@
         Ruby needs to know the **type** of data the value is to figure out how to work with it.  Let&rsquo;s look at that error again.
 
         ```ruby
-        irb> print 2 + "2"
+        irb> puts 2 + "2"
         TypeError: String cannot be coerced into Fixnum
         ```
 
-        * The first `2`, inside of `print 2 + "2"` is an integer.
+        * The first `2`, inside of `puts 2 + "2"` is an integer.
         * `"2"` enclosed in the quotes, is a **string** type, or "literal text".
         * Ruby can&rsquo;t add a number and string, so it spits out an error.
 
@@ -458,13 +455,14 @@
 
         Ruby can convert the string `"2"` into a number and *change the type*.
 
-        To change the string to an integer (whole number) using the `.to_i` function.  Try it in your console.
+        To change the string to an integer (whole number) using the `.to_i` method.  Try it in your console.
 
         ```
-        irb> print 2 + "2".to_i
-        4 => nil
+        irb> puts 2 + "2".to_i
+        4
+        => nil
         ```
-        `to_i` is another predefined function in Ruby.
+        `to_i` is another predefined method in Ruby.
         It converts a string to an integer.
       </script>
     </section>
@@ -473,9 +471,9 @@
       <script type="text/template">
         #Dot Notation
 
-        The most common way we call functions is with **dot notation**.
+        The most common way we call methods is with **dot notation**.
 
-        In other words, add a period, then the function name *after* the object you want to call it on.
+        In other words, add a period, then the method name *after* the object you want to call it on.
 
         For example:
 
@@ -492,15 +490,17 @@
         Now try dividing 2 numbers and see what value gets returned:
 
         ```
-        irb> print 1 / 2
-        0 => nil
+        irb> puts 1 / 2
+        0
+        => nil
         ```
         This happens because Ruby sees 2 integers and will return an integer. Integer **classes** don&rsquo;t have decimal parts, so it must be converted to **floats**, since this number **class** can handle decimals.
 
-        Use dot notation and the `.to_f` function.
+        Use dot notation and the `.to_f` method.
         ```
-        irb> print 1.to_f / 2.to_f
-        0.5 => nil
+        irb> puts 1.to_f / 2.to_f
+        0.5
+        => nil
         ```
 
       </script>
@@ -513,16 +513,16 @@
         Ruby can also be used to convert numbers to strings.
 
         ```
-        irb> print 3 + " items in my bento!"
+        irb> puts 3 + " items in my bento!"
         TypeError: String cant be coerced into Fixnum
 
         ```
-        Use the `.to_s` function to convert a number to a string.
+        Use the `.to_s` method to convert a number to a string.
 
         ```
-        irb> print 3.to_s + " items in my bento!"
-        3 items in my bento! => nil
-
+        irb> puts 3.to_s + " items in my bento!"
+        3 items in my bento!
+        => nil
         ```
 
         The ability to tell Ruby to change the type will come in handy later.
@@ -554,8 +554,9 @@
 
         ```ruby
         irb> today = "Saturday"
-        irb> print "Today is " + today
-        Today is Saturday => nil
+        irb> puts "Today is " + today
+        Today is Saturday
+        => nil
         ```
         You can store almost anything in a variable.
       </script>
@@ -587,9 +588,9 @@
 
         * Can only use letters, numbers and the underscore (`_`); no spaces
         * Words can be separated with an underscore `_`
-        i.e. `ladies_learning_code`
+        eg. `ladies_learning_code`
         * Cannot begin with a number
-        i.e. `1day` gives you an error while `day1` is fine
+        eg. `1day` gives you an error while `day1` is fine
 
         The names we&rsquo;ll use today are descriptive, but otherwise have no special meaning to Ruby.
       </script>
@@ -614,7 +615,7 @@
       <script type="text/template">
         #Working with user input
 
-        So far, we&rsquo;ve used the console to output message on the screen. Now let's write a program that can say hello to anyone!
+        So far, we&rsquo;ve used `puts` to output message on the screen. Now let's write a program that can say hello to anyone!
 
         Use the `gets` method to receive data typed into the console. Then you'll see a blank line and the cursor. Type your name in the blank line.
 
@@ -749,13 +750,13 @@
 
           ![Create a new ruby File](./framework/img/workshop/saving-ruby-file.png)
 
-        1. Enter the name `hello.rb` in the popup box. Make sure to save it into your **exercises** folder.
+        1. Enter the name `ex1_hello.rb` in the popup box. Make sure to save it into your **exercises** folder.
 
         1. Now we can add our program to the Ruby file.
 
           ```ruby
           # Ask user for input
-          print "Please enter your name: "
+          puts "Please enter your name:"
 
           # Assign the input value to a variable
           # Your program waits for the user to hit enter
@@ -790,7 +791,7 @@
 
         Code in a file is just text until you **run** it through the Ruby program.
 
-        We'll need to navigate to the location of your saved **hello.rb** file using `cd` (change directory) and `ls` (list files).
+        We'll need to navigate to the location of your saved **ex1_hello.rb** file using `cd` (change directory) and `ls` (list files).
 
         Open a new tab in the console. The directory location will default to your user directory and will look something like this:
 
@@ -806,7 +807,7 @@
         Computer-Name:~ yourusername$ cd Desktop
         ```
 
-        Navigate only to the **exercises** folder (not the `hello.rb` file).
+        Navigate only to the **exercises** folder (not the `ex1_hello.rb` file).
 
         ---
         ###Pro tip!
@@ -818,23 +819,23 @@
       <script type="text/template">
         # Class Exercise 1: Hello World (part 2)
 
-        Once in the **exercises** directory, type `ruby hello.rb` and hit `Enter` to run your program.
+        Once in the **exercises** directory, type `ruby ex1_hello.rb` and hit `Enter` to run your program.
         ```
-        Computer-Name:exercises yourusername$ ruby hello.rb
+        Computer-Name:exercises yourusername$ ruby ex1_hello.rb
         ```
 
-        The program should now execute the first line in the `hello.rb` file and ask for your name.
+        The program should now execute the first line in the `ex1_hello.rb` file and ask for your name.
 
         Type in your name and hit `Enter` again and it will say hello to you. It will look something like this:
 
         ```
-        Computer-Name:exercises yourusername$ ruby hello.rb
+        Computer-Name:exercises yourusername$ ruby ex1_hello.rb
         Please enter your name: Trudy
         Hello Trudy
         Computer-Name:exercises yourusername$
         ```
 
-        You can run your program as many times as you like by repeating the steps above. Or try changing the greeting in the **hello.rb** file!
+        You can run your program as many times as you like by repeating the steps above. Or try changing the greeting in the **ex1_hello.rb** file!
       </script>
     </section>
 
@@ -923,7 +924,9 @@
 
         ```ruby
         # file: weather_advice.rb
-        print "What is the weather? (cold, raining, etc.)"
+        puts "What is the weather? (cold, raining, etc.): "
+
+        # chomp removed the enter at the end of a line "chomps" off the /n or ENTER key input
         weather = gets.chomp
 
         if weather == "cold"
@@ -947,27 +950,29 @@
 
         Just as you could check the exact value of a string or number you can use typical math operators to check relative numeric values
 
-        `>`: Greater than  
-        `<`: Less than  
-        `>=`: Greater than or equal to  
+        `>`: Greater than
+        `<`: Less than
+        `>=`: Greater than or equal to
         `<=`: Less than or equal to
 
         ```ruby
         irb> x = 5
         => 5
-        irb> print x > 5
-        false => nil
-        irb> print x >= 5
-        true => nil
+        irb> puts x > 5
+        false
+        => nil
+        irb> puts x >= 5
+        true
+        => nil
         ```
 
-        Here we're using the `to_s` function to turn "5" into a string for printing!
+        Here we're using the `to_s` method to turn "5" into a string for output!
 
         ```ruby
         irb> if x >= 5
-        ...      print x.to_s + " is greater than or equal to 5"
+        ...      puts x.to_s + " is greater than or equal to 5"
         ...  else
-        ...      print x.to_s + " is less than 5"
+        ...      puts x.to_s + " is less than 5"
         ...  end
         ...
         5 is greater than or equal to 5
@@ -981,7 +986,7 @@
 
         Sometimes, you can&rsquo;t neatly capture your conditions with one expression. You need to combine multiple expressions to determine what to do next.
 
-        `&&`: both things must be true  
+        `&&`: both things must be true
         `||`: either one, or both things must be true
 
         ```ruby
@@ -989,12 +994,12 @@
         snowing = true
 
         irb> if weather == "cold" && snowing == true
-        ...      print "wear a winter jacket"
+        ...      puts "wear a winter jacket"
         ...  end
 
         wear a winter jacket
         irb> if weather == "raining" || snowing == true
-        ...      print "bring a change of socks"
+        ...      puts "bring a change of socks"
         ...  end
         bring a change of socks
         ```
@@ -1010,23 +1015,23 @@
         ```ruby
         irb> x = 5
         irb> if x > 0 && x < 6
-        ...      print "x is between 0 and 6."
+        ...      puts "x is between 0 and 6."
         ...  end
         x is between 0 and 6.
         ```
 
         ```ruby
         irb> if x.class == Float || x.class == Fixnum
-        ...      print "x is a numeric value"
+        ...      puts "x is a numeric value"
         ...  end
         x is a numeric value
         ```
 
         ```ruby
         irb> if x > 10 && x < 0
-        ...      print "x could never be greater than 10 AND less than 0"
+        ...      puts "x could never be greater than 10 AND less than 0"
         ...  end
-        # Nothing prints here
+        # Nothing is output here
         ```
 
       </script>
@@ -1040,13 +1045,13 @@
 
         Instead of telling your program if it&rsquo;s cold, you can input the temperature and let it decide what to do.
 
-        Open **smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `&&`/`||` to complete the exercise.
+        Open **ex3_smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `&&`/`||` to complete the exercise.
 
         ```ruby
         # if the weather is greater than or equal to 25 degrees
         if "replace this with the right condition"
-            print "Go to the beach!"
-        # the weather is less than 25 degrees AND greater than 15 degrees
+            puts "Go to the beach!"
+        # otherwise, if the weather is less than 25 degrees AND greater than 15 degrees
         elsif "replace this with the right conditions"
             # Still warm enough for ice cream!
         else
@@ -1092,12 +1097,12 @@
 
         In order to make use of the data in a file, we need to make sense of small portions of data at a time.
 
-        In the `no-emissions.csv` file, each line of the file represents a country and the amount of nitrogen oxide emissions during a period of time. 
-        
-        Let&rsquo;s print out a few individual lines.
+        In the `no-emissions.csv` file, each line of the file represents a country and the amount of nitrogen oxide emissions during a period of time.
+
+        Let&rsquo;s output a few individual lines.
 
         ```ruby
-        irb> emissions = File.open('./exercises/no-emissions.csv')
+        irb> emissions = File.open("./exercises/no-emissions.csv")
         irb> puts emissions.readline()
         => "\"Nitrogen oxide emissions by country, 2002 and 2012\",,,,\r\n"
 
@@ -1119,23 +1124,19 @@
       <script type="text/template">
         # Reading all the lines in a file
 
-        It&rsquo;s all well and good to print out the lines in a file one-at-a-time, but surely, there&rsquo;s a better way to read *all* the lines in a file.
+        It&rsquo;s all well and good to output the lines in a file one-at-a-time, but surely, there&rsquo;s a better way to read *all* the lines in a file.
 
-        To perform the same action many times in a row, use **loops**. In Ruby, there are lots of types of loops! 
-        
-        The example below uses a `for` loop to print each of the rows in the file.
+        To perform the same action many times in a row, use **loops**. In Ruby, there are lots of types of loops!
+
+        The example below uses an `each` loop to output each of the rows in the file.
 
         ```ruby
-        irb> emissions = File.open('./exercises/no-emissions.csv')
-        irb> for line in emissions
+        irb> emissions = File.open("./exercises/no-emissions.csv")
+        irb> emissions.each do |line|
         ...      puts line
         ...  end
         irb> emissions.close()
         ```
-        ---
-        ###Resource
-
-        https://docs.ruby.org/2/tutorial/controlflow.html#for-statements
       </script>
     </section>
 
@@ -1172,7 +1173,7 @@
 
         ---
         <!-- .element: class="note" -->**Note**: This is a widely used file-format because it&rsquo;s such a simple representation of rows and columns of data. It doesn&rsquo;t matter whether you&rsquo;re on a Mac, Windows, Linux or even on a web app like Google Docs – everyone can use this data.
-        </script>
+      </script>
     </section>
 
     <section class="slide" data-markdown>
@@ -1216,7 +1217,7 @@
             font-size: 15px;
             background: rgba(255, 255, 255, .5);
             table-layout: fixed;
-            width:100%;
+            width: 100%;
         }
         .csv_table td {
             padding: 0.4em;
@@ -1246,12 +1247,12 @@
 
         So far, we've been writing all our code in the console or in one file. When you use a library, you don't want to copy all that code into your file, otherwise it would become huge!
 
-        In Ruby, you can **require** the functions and other structures so you can use the code without having it in your file. Then you can use functions (and other structures) to do your bidding!
+        In Ruby, you can **require** the methods and other structures so you can use the code without having it in your file. Then you can use methods (and other structures) to do your bidding!
 
         In your console, import the `csv` library as follows.
 
         ```ruby
-        irb> require 'csv'
+        irb> require "csv"
         ```
 <!-- TEMP: I don't think you can do this in IRB
         If you then type `csv.` and wait, it will show you a list of everything in that module.
@@ -1274,8 +1275,8 @@
         * Access data by row and column (`data[row][column]`)
 
         ```ruby
-        irb> require 'csv'
-        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> require "csv"
+        irb> data = CSV.read("./exercises/no-emissions.csv")
         irb> data[4][0]
         => "Canada"
         irb> data[4][1]
@@ -1285,7 +1286,7 @@
         ```
 
         <!-- .element: class="note" -->
-        <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all functions available in CSV.
+        <a href="http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.html#method-c-readlines">Ruby Docs</a> have a list of all methods available in CSV.
       </script>
     </section>
 
@@ -1301,8 +1302,8 @@
 
 
         ```ruby
-        irb> require 'csv'
-        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> require "csv"
+        irb> data = CSV.read("./exercises/no-emissions.csv")
         => [["Nitrogen oxide emissions by country, 2002 and 2012", nil, nil, nil, nil], [nil, nil, nil, nil, nil]...
         irb> data.class
         => Array
@@ -1325,8 +1326,8 @@
         We can also select a range of items from an array by specifying the indices of the first and the last item:
 
         ```ruby
-        irb> require 'csv'
-        irb> data = CSV.read('./exercises/no-emissions.csv')
+        irb> require "csv"
+        irb> data = CSV.read("./exercises/no-emissions.csv")
         irb> data[4..6]
         => [["Canada", "2529", "1862", "2.4", "1.4"],
             ["Australia", "1586", "1707", "2.4", "2"],
@@ -1345,9 +1346,10 @@
 
 
         ```ruby
-        require 'csv'
-        data = CSV.read('./exercises/no-emissions.csv')
-        for row in data[3..35]
+        require "csv"
+        data = CSV.read("./exercises/no-emissions.csv")
+        data = data[3..35]
+        data.each do |row|
             country = row[0]
             emissions2002 = row[1]
             if emissions2002 != nil
@@ -1369,8 +1371,9 @@
 
         ```ruby
         # Require the csv library
+        require "csv"
 
-        # Read the file 'no-emissions.csv' using the library
+        # Read the file "no-emissions.csv" using the library
 
         # Loop through the rows 3 to 35
 
@@ -1378,7 +1381,7 @@
 
             # Compare the integer in the second column (row[1]) with the integer in the third column (row[2])
 
-            # Print "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
+            # Use puts to display "The difference in emissions between 2002 and 2012 for [COUNTRY] is [NUMBER] kilotonnes!"
         ```
       </script>
     </section>
@@ -1394,18 +1397,20 @@
         ```ruby
         irb> count = 0
         irb> count = count + 1
-        irb> print count
+        irb> puts count
         => 1
         ```
         We can count the number of countries in **no-emissions.csv** if we increase by one for each row we loop over.
 
         ```ruby
         # file: exercises/demo_loop_count.rb
-        require 'csv'
+        require "csv"
 
         count = 0
 
-        for row in CSV.read("no-emissions.csv")
+        data = CSV.read("no-emissions.csv")
+
+        data.each do |row|
             # Ignore irrelevant rows
             if row[1].to_i > 0
               count += 1
@@ -1421,7 +1426,7 @@
       <script type="text/template">
         # Finding a word in a string
 
-        So far, we've compared entire strings to each other `"ruby" == "ruby"`.  
+        So far, we've compared entire strings to each other `"ruby" == "ruby"`.
         But what if you want to check for a word inside an existing string?
 
         Ruby has an `.include?()` method available on `string` types that tells you if another string appears – it returns a **boolean**.
@@ -1431,8 +1436,8 @@
         => true
         ```
 
-        The `.include?()` function is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
-        
+        The `.include?()` method is case-sensitive – it will only match the *exact* string you pass it, even if the only difference is `C` vs `c`.
+
         *<!-- .element: class="note" --> When we said computers require **exact** instructions, we meant it!*
       </script>
     </section>
@@ -1449,8 +1454,8 @@
 
         Open **ex5_city_rent_comparison.rb** and use what you've learned to find the rent prices in neighboring cities.
 
-        * Print a list of cities in your chosen provinces
-        * Print the city with the most expensive rent
+        * Output a list of cities in your chosen provinces
+        * Output the city with the most expensive rent
       </script>
     </section>
 
@@ -1468,9 +1473,9 @@
 
         However the file **rent-data.csv** has 50,000+ entries!!
 
-          Do you want to count those?
+        Do you want to count those?
 
-          ![Nope, not doing that.](https://secure.static.tumblr.com/77ca0023625f97466d6949685a7a9a9a/ekdqlmj/jynndac2p/tumblr_static_tumblr_static_am0no65tjps84o0cs4wc4g8o4_640.gif)
+        ![Nope, not doing that.](https://secure.static.tumblr.com/77ca0023625f97466d6949685a7a9a9a/ekdqlmj/jynndac2p/tumblr_static_tumblr_static_am0no65tjps84o0cs4wc4g8o4_640.gif)
 
         Computers will churn through repetitive tasks according to your instructions without stopping for coffee.
       </script>
@@ -1483,7 +1488,7 @@
       <script type="text/template">
         # Final Exercise
 
-        Out of curiousity we are going to take a look at historical rent prices using data from [open.canada.ca.](http://open.canada.ca/).
+        Out of curiosity we are going to take a look at historical rent prices using data from [open.canada.ca](http://open.canada.ca/).
 
         Open **final_exercise.rb** and complete the exercise:
 
@@ -1494,7 +1499,7 @@
         ![Nicki - Work it](http://33.media.tumblr.com/50d6e9b731ca0e739a04ed9255df3228/tumblr_mmjqcuNB9b1ql5yr7o1_500.gif)
       </script>
     </section>
-    
+
     <section class="slide" data-markdown>
       <script type="text/template">
         # Ruby vs Ruby on Rails
@@ -1542,7 +1547,7 @@
       <script type="text/template">
         #Questions?
 
-        ![A-Ok](http://ak-hdl.buzzfed.com/static/2015-08/24/10/imagebuzz/webdr11/anigif_optimized-23047-1440425651-7.gif) <!-- .element: style="width: 50%" -->
+        ![](https://thumbs.gfycat.com/WelltodoBlandAndeancondor-size_restricted.gif) <!-- .element: style="width: 50%" -->
       </script>
     </section>
 
@@ -1584,7 +1589,7 @@
 
     // Grabs all the .snippet elements
     var snippets = document.querySelectorAll('.snippet');
-    for(var i=0; i<snippets.length; i++) {
+    for (var i = 0; i < snippets.length; i++) {
       new CSSSnippet(snippets[i]);
     }
   </script>
