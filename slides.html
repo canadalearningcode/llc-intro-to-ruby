@@ -338,63 +338,6 @@
       </script>
     </section>
 
-    <section class="slide no-bullet-list" data-markdown>
-      <script type="text/template">
-        #Functions
-
-        * Functions are bundles of instructions that can be re-used
-          * Defined by wrapping the instructions between `def` and `end`
-          * Directly after `def` is the name of the function
-        * Function can take **arguments** and **return** values
-          * After the function name, **arguments** are defined in parentheses, `()`
-        * Functions always `return` 1 thing or a set of things
-
-        ```ruby
-        def functionName(arg1, arg2)
-          set of instructions
-          return answer
-        end
-        ```
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        #Define the function
-
-        This doesn't actually run the code.  We're just telling the computer what to expect.
-
-        In the below example, the `add` function takes `a` and `b` as arguments and will **return** the result.
-
-        ```ruby
-        irb> def add(a, b)
-        ...      return a + b
-        ...  end
-        ...
-        ```
-      </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        #Call the function
-
-        After *defining* the function, *call* it by typing the name of the function, `add()` and substituting values where the arguments were defined `(a,b)`.
-
-        ```ruby
-        irb> add(1, 2)
-        => 3
-        ```
-
-        The benefit is now we can sub in any 2 numbers without having to rewrite the code.
-
-        ```ruby
-        irb> add(3, 4)
-        => 7
-        ```
-        We won't create our own functions in today's exercises, but we'll use those provided by ruby and its libraries.
-      </script>
-    </section>
     <section class="slide" data-markdown>
       <script type="text/template">
         #Outputting values: `puts`
@@ -453,7 +396,7 @@
       <script type="text/template">
         #What's nil? It's nothing, don't worry.
 
-        Remember how **Functions** always return 1 thing?
+        Every **function** returns a value.
 
         Well, `print` and `puts` are functions.  However, since they only print to the screen they *technically* don't return anything.
 
@@ -1034,23 +977,23 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # And / Or
+        # && / ||
 
         Sometimes, you can&rsquo;t neatly capture your conditions with one expression. You need to combine multiple expressions to determine what to do next.
 
-        `and`: both things must be true  
-        `or`: either one, or both things must be true
+        `&&`: both things must be true  
+        `||`: either one, or both things must be true
 
         ```ruby
         weather = "cold"
         snowing = true
 
-        irb> if weather == "cold" and snowing == true
+        irb> if weather == "cold" && snowing == true
         ...      print "wear a winter jacket"
         ...  end
 
         wear a winter jacket
-        irb> if weather == "raining" or snowing == true
+        irb> if weather == "raining" || snowing == true
         ...      print "bring a change of socks"
         ...  end
         bring a change of socks
@@ -1060,27 +1003,27 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # Examples with and/or
+        # Examples with &&/||
 
         Take note! Whereas in math notation you can write `0 < x < 6`, in ruby you need to split these into separate comparisons
 
         ```ruby
         irb> x = 5
-        irb> if x > 0 and x < 6
+        irb> if x > 0 && x < 6
         ...      print "x is between 0 and 6."
         ...  end
         x is between 0 and 6.
         ```
 
         ```ruby
-        irb> if x.class == Float or x.class == Fixnum
+        irb> if x.class == Float || x.class == Fixnum
         ...      print "x is a numeric value"
         ...  end
         x is a numeric value
         ```
 
         ```ruby
-        irb> if x > 10 and x < 0
+        irb> if x > 10 && x < 0
         ...      print "x could never be greater than 10 AND less than 0"
         ...  end
         # Nothing prints here
@@ -1097,7 +1040,7 @@
 
         Instead of telling your program if it&rsquo;s cold, you can input the temperature and let it decide what to do.
 
-        Open **smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `and`/`or` to complete the exercise.
+        Open **smarter_weather.rb** and follow the instructions. Use math comparison operators as well as `&&`/`||` to complete the exercise.
 
         ```ruby
         # if the weather is greater than or equal to 25 degrees
@@ -1544,7 +1487,7 @@
 
         Open **final_exercise.rb** and complete the exercise:
 
-        * Complete a function that computes the **average rent** in a chosen **decade** for a chosen province and rental unit type.
+        * Write code that computes the **average rent** in a chosen **decade** for a chosen province and rental unit type.
         * Find the **difference** between the average rent in the **1980s** and in the **1990s**.
         *  **Bonus Exercise**: Use **selection sort** to sort a list of provinces from the highest to the lowest average rent.
 
