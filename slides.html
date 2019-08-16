@@ -424,7 +424,7 @@
         But what if we try to join a string and a number?
 
         ```ruby
-        irb> print 2 + "2"
+        irb> puts 2 + "2"
         TypeError: String cannot be coerced into Integer
 
         ```
@@ -438,7 +438,7 @@
         Ruby needs to know the **type** of data the value is to figure out how to work with it.  Let&rsquo;s look at that error again.
 
         ```ruby
-        irb> print 2 + "2"
+        irb> puts 2 + "2"
         TypeError: String cannot be coerced into Integer
         ```
 
@@ -517,7 +517,7 @@
         Ruby can also be used to convert numbers to strings.
 
         ```
-        irb> print 3 + " items in my bento!"
+        irb> puts 3 + " items in my bento!"
         TypeError: String cant be coerced into Integer
 
         ```
@@ -1026,7 +1026,7 @@
 
         ```ruby
         irb> if x.is_a?(Float) || x.is_a?(Integer)
-        ...      print "x is a numeric value"
+        ...      puts "x is a numeric value"
         ...  end
         x is a numeric value
         ```
