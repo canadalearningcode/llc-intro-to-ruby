@@ -289,7 +289,7 @@
 
         We just used the *integer* number **class** but there are many more.
 
-        * Integer/Fixnum (whole numbers)
+        * Integer (whole numbers)
         * Float (numbers containing decimals)
         * String (words, sentences, literal text) - requires quotes
         * Boolean (`true`, `false`)
@@ -302,11 +302,14 @@
         => String
 
         irb> 42.class
-        => Fixnum
+        => Integer
 
         irb> 3.14159.class
         => Float
         ```
+
+        Heads up! Older versions of Ruby call it `Fixnum` instead of
+        `Integer`.
       </script>
     </section>
     <section class="slide" data-markdown>
@@ -421,7 +424,7 @@
 
         ```ruby
         irb> puts 2 + "2"
-        TypeError: String cannot be coerced into Fixnum
+        TypeError: String cannot be coerced into Integer
 
         ```
       </script>
@@ -435,7 +438,7 @@
 
         ```ruby
         irb> puts 2 + "2"
-        TypeError: String cannot be coerced into Fixnum
+        TypeError: String cannot be coerced into Integer
         ```
 
         * The first `2`, inside of `puts 2 + "2"` is an integer.
@@ -514,7 +517,7 @@
 
         ```
         irb> puts 3 + " items in my bento!"
-        TypeError: String cant be coerced into Fixnum
+        TypeError: String cant be coerced into Integer
 
         ```
         Use the `.to_s` method to convert a number to a string.
@@ -1021,7 +1024,7 @@
         ```
 
         ```ruby
-        irb> if x.class == Float || x.class == Fixnum
+        irb> if x.is_a?(Float) || x.is_a?(Integer)
         ...      puts "x is a numeric value"
         ...  end
         x is a numeric value
